@@ -1,2 +1,3 @@
 # daily-notes
-Summary of daily notes .
+
+Summary of personal daily notes and records .
