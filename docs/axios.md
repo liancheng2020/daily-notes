@@ -1,18 +1,54 @@
-    onSubmit(evt) {
-      evt.preventDefault();
-      const formdata = {
+#### 单一获取api数据
+
+```javascript
+axios({
         method: "post",
-        headers: { "content-type": "application/x-www-form-urlencoded" },
-        data: qs.stringify(this.form),
-        url: "api接口链接"
-      };
-      axios(formdata)
-        .then(response => {
-          alert("感谢您的提交，稍后将安排专人与您联系。");
-          window.location.reload();
-        })
-        .catch(error => {
-          alert("提交失败，请重试！");
-          window.location.reload();
-        });
-    }
+        url: "api"
+    })
+    .then(response => {
+        this.data = response.data.result;
+    })
+    .catch(response => {
+        console.log("error!");
+    });
+```
+
+#### 根据请求参数(body)获取api数据
+
+```javascript
+axios
+    .post("api", {
+        userid: "",
+        orderid: ""
+    })
+    .then(res => {
+        this.data = res.data.result;
+    })
+    .catch(error => {
+        console.log("error!");
+    });
+```
+
+#### 向api提交表单数据
+
+```javascript
+const formdata = {
+    method: "post",
+    headers: {
+        "content-type": "application/x-www-form-urlencoded"
+    },
+    data: qs.stringify({
+        phone: this.phone,
+        code: this.code,
+        pwd: this.pwd
+    }),
+    url: "api"
+};
+axios(formdata)
+    .then(response => {
+        this.data = response.data.result;
+    )
+    .catch(error => {
+        console.log("error!");
+    );
+```
