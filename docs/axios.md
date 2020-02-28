@@ -8,7 +8,7 @@ axios({
     .then(response => {
         this.data = response.data.result;
     })
-    .catch(response => {
+    .catch(error => {
         console.log("error!");
     });
 ```
