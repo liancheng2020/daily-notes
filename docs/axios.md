@@ -47,8 +47,8 @@ const formdata = {
 axios(formdata)
     .then(response => {
         this.data = response.data.result;
-    )
+    })
     .catch(error => {
         console.log("error!");
-    );
+    });
 ```
