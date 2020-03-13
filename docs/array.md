@@ -28,7 +28,6 @@
 >
 > - reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
 
-
 #### Math()相关方法大全
 
 > - Math.random(): 返回一个0到1之间的随机数
