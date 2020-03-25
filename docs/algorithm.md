@@ -16,6 +16,26 @@
     }
 ```
 
+```javascript
+    var arr = [12,34,3,24,78,90,16,45], temp = 0;
+    for(var i=0; i<arr.length; i++)
+    {
+        for(var j=arr.length-1; j>=i; j--)   //for(var j=0; j<arr.length-1-i; j++)
+        {
+            if(arr[j] > arr[j+1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+    for(var x in arr)
+    {
+        console.log(arr[x]);
+    }
+```
+
 #### 选择排序
 
 ```javascript
