@@ -19,7 +19,21 @@
 #### 选择排序
 
 ```javascript
-
+    var arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0;
+    for (var i=0; i<arr.length-1; i++) {
+        var min = i;
+        for (var j=i+1; j<arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
+    for (var x in arr) {
+        console.log(arr[x]);
+    }
 ```
 
 #### 数组去重
