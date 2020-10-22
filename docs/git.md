@@ -14,7 +14,7 @@
     git branch -a
 ```
 
-#### git 打标签
+#### git 标签tag相关
 
 ```git
     git tag 1.0
