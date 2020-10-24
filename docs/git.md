@@ -23,3 +23,11 @@
     git tag -d 1.0
     git push :refs/tags/1.0
 ```
+
+#### git 分支创建、关联
+
+```git 
+    git checkout -b test  // 创建本地分支test
+    git push origin test  // 创建远程分支test
+    git branch --set-upstream-to=origin/test // 将本地test分支与远程test分支建立关联
+```
