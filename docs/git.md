@@ -17,11 +17,11 @@
 #### git 标签tag相关
 
 ```git
-    git tag 1.0
-    git push origin --tags
+    git tag 1.0  // 新建一个tag
+    git push origin --tags  // 提交所有tag
 
-    git tag -d 1.0
-    git push :refs/tags/1.0
+    git tag -d 1.0  // 删除本地的tag
+    git push :refs/tags/1.0  // 删除远程的tag
 ```
 
 #### git 分支创建、关联
