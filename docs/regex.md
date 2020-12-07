@@ -1,4 +1,5 @@
 #### 表情包校验
+
 ```git
 value = value
       .replace(
@@ -9,7 +10,13 @@ value = value
 ```
 
 #### 只允许输入正整数
+
 ```git
 value = value.replace(/[^\d]/g, '')
 ```
 
+#### 手机号校验正则表达式
+
+```git
+regex = /^1[3-9][0-9]{9}$/
+```
