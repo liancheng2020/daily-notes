@@ -8,7 +8,7 @@
 
 ```javascript
     window.history.back();
-    window.history.g0(-1);
+    window.history.go(-1);
     // back和go里面都可以放数值，-1返回上一级，-2返回上上级
 ```
 
