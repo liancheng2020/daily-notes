@@ -1,4 +1,4 @@
-#### 输入查询匹配
+#### 输入查询匹配或下拉选择
 
     <el-select
       ref="customer"
@@ -15,12 +15,11 @@
 
 ```javascript
 
-  doCustomerFilter(query: string) {
-    if (query !== '') {
+    doCustomerFilter(query: string = '') {
       const param = new QueryParam()
       param.start = 0
       param.limit = 20
-      param.filters.push({ property: 'keyword:%=%', value: query })
+      query && param.filters.push({ property: 'keyword:%=%', value: query })
       this.customerList = []
       this.loading = true
       CustomerApi.query(param)
@@ -32,9 +31,5 @@
           this.loading = false
           this.$message.error(e.message)
         })
-    } else {
-      this.loading = false
-      this.customerList = []
     }
-  }
 ```
