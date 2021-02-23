@@ -6,7 +6,7 @@
       filterable
       clearable
       remote
-      placeholder="客户代码/名称"
+      placeholder="输入查询匹配或下拉选择"
       :remote-method="doCustomerFilter"
       :loading="loading"
     >
