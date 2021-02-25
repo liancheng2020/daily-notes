@@ -15,7 +15,7 @@
 
   doUpload(params: any) {
     if (params.size > 1024 * 1024 * 5) {
-      return this.$message.warning('导入文件过大，请导入5兆以内的文件')
+      return this.$message.warning('导入文件过大，请导入5MB以内的文件')
     }
     const loading = this.$loading(ConstantMgr.loadingOption)
     let formData = new FormData()
