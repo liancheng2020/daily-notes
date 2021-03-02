@@ -23,3 +23,23 @@
 ```javascript
   filter: blur(10px);
 ```
+
+### flex布局
+
+##### 左右布局
+
+```
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+```
+
+##### 纵向布局
+
+
+```
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+```
