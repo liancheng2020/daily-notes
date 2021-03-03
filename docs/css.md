@@ -25,6 +25,13 @@
 ```
 
 ### flex布局
+#### 水平垂直居中
+
+```
+  display: flex;
+  justify-content: center;
+  align-items: center;
+```
 
 ##### 左右布局
 
@@ -33,9 +40,7 @@
   justify-content: space-between;
   align-items: center;
 ```
-
 ##### 纵向布局
-
 
 ```
   display: flex;
