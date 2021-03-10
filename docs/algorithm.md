@@ -1,6 +1,6 @@
 #### 冒泡排序
 
-```javascript
+```
     var arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0;
     for (var i=0; i<arr.length; i++) {
         for (var j=i+1; j<arr.length; j++) {
@@ -16,7 +16,7 @@
     }
 ```
 
-```javascript
+```
     var arr = [12,34,3,24,78,90,16,45], temp = 0;
     for(var i=0; i<arr.length; i++)
     {
@@ -38,7 +38,7 @@
 
 #### 选择排序
 
-```javascript
+```
     var arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0;
     for (var i=0; i<arr.length-1; i++) {
         var min = i;

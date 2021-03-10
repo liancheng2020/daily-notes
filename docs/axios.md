@@ -1,6 +1,6 @@
 #### 单一获取api数据
 
-```javascript
+```
 axios({
         method: "post",
         url: "api"
@@ -15,7 +15,7 @@ axios({
 
 #### 根据请求参数(body)获取api数据
 
-```javascript
+```
 axios
     .post("api", {
         userid: "",
@@ -31,7 +31,7 @@ axios
 
 #### 向api提交表单数据
 
-```javascript
+```
 const formdata = {
     method: "post",
     headers: {

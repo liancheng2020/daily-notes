@@ -13,8 +13,7 @@
       <el-option v-for="item in customerList" :key="item.uuid" :value="item.uuid" :label="'[' + item.code + ']' + item.name"></el-option>
     </el-select>
 
-```javascript
-
+```
     doCustomerFilter(query: string = '') {
       const param = new QueryParam()
       param.start = 0

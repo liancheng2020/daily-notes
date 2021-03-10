@@ -1,6 +1,6 @@
 #### 单行超出省略
 
-```git
+```
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -8,7 +8,7 @@
 
 #### 双行超出省略
 
-```git
+```
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -20,7 +20,7 @@
 
 ### 滤镜
 
-```javascript
+```
   filter: blur(10px);
 ```
 

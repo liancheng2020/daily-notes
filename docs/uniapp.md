@@ -1,6 +1,6 @@
 #### 路由跳转
 
-```git
+```
 - uni.navigateTo(OBJECT)   // 保留当前页面，跳转到应用内的某个页面
 
 - uni.redirectTo(OBJECT)   // 关闭当前页面，跳转到应用内的某个页面

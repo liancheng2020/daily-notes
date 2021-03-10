@@ -1,5 +1,5 @@
 #### base64上传图片
-```javascript
+```
 
   doUpload(file: { raw: Blob }) {
     let reader = new FileReader()
@@ -11,7 +11,7 @@
 
 ```
 #### formData上传图片
-```javascript
+```
 
   doUpload(params: any) {
     if (params.size > 1024 * 1024 * 5) {
