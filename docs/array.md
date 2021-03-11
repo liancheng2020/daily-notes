@@ -27,6 +27,10 @@
 > - indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
 >
 > - reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
+> 
+> - find: 返回数组中符合条件的第一个元素的值，否则返回 undefined
+> 
+> - findIndex: 返回数组中满足符合条件的第一个元素的索引，否则返回 -1
 
 #### Math()相关方法大全
 
