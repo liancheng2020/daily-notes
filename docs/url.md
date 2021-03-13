@@ -17,3 +17,13 @@
 ```javascript
     window.location.reload();
 ```
+
+#### 打开新标签页
+
+```
+    const { href } = this.$router.resolve({
+      path: '/orderDtl',
+      query: { id: '', shop: '' }
+    })
+    window.open(href, '_blank')
+```
