@@ -27,3 +27,10 @@
     })
     window.open(href, '_blank')
 ```
+
+#### 关闭当前标签页
+
+```
+    window.location.href = 'about:blank'
+    window.close()
+```
