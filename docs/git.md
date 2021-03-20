@@ -10,8 +10,10 @@
 #### git 判断分支
 
 ```
-    git branch
-    git branch -a
+    git branch     // 查看本地分支
+    git branch -a   // 查看本地与远程所有分支
+    git branch -D dev  // 删除本地dev分支
+    git push origin --delete dev  // 删除远程dev分支
 ```
 
 #### git 标签tag相关
