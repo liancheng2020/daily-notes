@@ -1,10 +1,10 @@
 #### git 代码提交
 
 ```
-    git status
-    git add .
-    git commit -m ''
-    git push
+    git status   // 判断已修改还未提交的文件
+    git add .    // 将修改的文件提交到暂存区
+    git commit -m ''  // 将修改的文件由暂存区提交到仓库
+    git push  // 推送到远程仓库
 ```
 
 #### git 判断分支
