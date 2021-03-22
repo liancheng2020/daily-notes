@@ -8,8 +8,6 @@
             return decodeURI(r[2]);
         return null;
     }
-
-    console("userid: ", getQueryString("userid"))
 ```
 
 #### 字符串截取
