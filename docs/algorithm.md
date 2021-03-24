@@ -58,7 +58,7 @@
 
 #### 数组去重
 
-```javascript
+```
     var array = [12, 45, 45, 32, 4, 8, 12, 4, 18];
     var arr = [];
     for (var i=0; i<array.length; i++) {

@@ -15,7 +15,7 @@
 
 #### 重新加载当前页
 
-```javascript
+```
     window.location.reload();
 ```
 
