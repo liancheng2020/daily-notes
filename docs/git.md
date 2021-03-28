@@ -34,6 +34,13 @@
     git branch --set-upstream-to=origin/test // 将本地test分支与远程test分支建立关联
 ```
 
+#### git 修改commit
+
+```
+    git commit --amend   // 修改最近一次的commit信息
+```
+
+
 #### git 撤销commit
 
 ```
