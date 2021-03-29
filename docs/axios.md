@@ -9,8 +9,8 @@ axios({
         this.data = response.data.result;
     })
     .catch(error => {
-        console.log("error!");
-    });
+        console.log("error!")
+    })
 ```
 
 #### 根据请求参数(body)获取api数据
@@ -25,8 +25,8 @@ axios
         this.data = res.data.result;
     })
     .catch(error => {
-        console.log("error!");
-    });
+        console.log("error!")
+    })
 ```
 
 #### 向api提交表单数据
@@ -43,12 +43,12 @@ const formdata = {
         pwd: this.pwd
     }),
     url: "api"
-};
+}
 axios(formdata)
     .then(response => {
-        this.data = response.data.result;
+        this.data = response.data.result
     })
     .catch(error => {
-        console.log("error!");
-    });
+        console.log("error!")
+    })
 ```
