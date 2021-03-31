@@ -1,7 +1,6 @@
 #### promise基本用法
 
 ```
-
   getUuid() {
     return new Promise((resolve, reject) => {
       SkuApi.getUuid()

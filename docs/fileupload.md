@@ -1,6 +1,6 @@
 #### base64上传图片
-```
 
+```
   doUpload(file: { raw: Blob }) {
     let reader = new FileReader()
     reader.readAsDataURL(file.raw)
@@ -11,8 +11,8 @@
 
 ```
 #### formData上传图片
-```
 
+```
   doUpload(params: any) {
     if (params.size > 1024 * 1024 * 5) {
       return this.$message.warning('导入文件过大，请导入5MB以内的文件')
@@ -29,5 +29,4 @@
       this.$message.error(e.message)
     })
   }
-
 ```
