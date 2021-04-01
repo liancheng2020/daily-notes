@@ -8,8 +8,8 @@
       console.log(event.srcElement.result)
     }
   }
-
 ```
+
 #### formData上传图片
 
 ```
