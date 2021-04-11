@@ -48,3 +48,10 @@
     git reset --hard HEAD^    // 撤销上一次提交的commit和add
     git reset --hard HEAD～2  // 撤销前两次提交的commit和add
 ```
+
+
+#### git初始化，连接远程仓库
+
+```
+    git remote add origin 'git仓库地址' // git连接远程仓库
+```
