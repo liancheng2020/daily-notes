@@ -32,3 +32,25 @@
         })
     }
 ```
+
+#### 输入框保留两位小数
+
+```
+  handle(data: any) {
+    if (!isNaN(data) && data > 0) {
+      //
+    } else {
+      this.amount = null
+    }
+    const a = data.toString().indexOf('.') // 判断是否是小数
+    if (!isNaN(data) && a > 0) {
+      const b = String(data).length - a - 1 // 判断是几位小数
+      const c = Number(data)
+      if (b > 2) {
+        const d = c.toFixed(2) // 保留两位小数
+        this.amount = Number(d)
+      }
+    }
+  }
+
+```
