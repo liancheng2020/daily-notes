@@ -16,7 +16,7 @@
 #### 重新加载当前页
 
 ```
-    window.location.reload();
+    window.location.reload()
 ```
 
 #### 打开新标签页
