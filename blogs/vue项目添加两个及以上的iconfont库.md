@@ -4,11 +4,11 @@
 
 1. 将下载下来的iconfont文件夹命名为baseicon；
 
-2. 找到文件夹中的iconfont.css文件，修改以下相关信息：
-将原来的iconfont
-![iconfont](/blogs/images/iconfont.png)
-修改为baseicon
-![baseicon](/blogs/images/baseicon.png)
+2. 找到文件夹中的iconfont.css文件，修改以下相关信息：  
+将原来的iconfont  
+![iconfont](/blogs/images/iconfont.png)  
+修改为baseicon  
+![baseicon](/blogs/images/baseicon.png)  
 
 3. 打开文件夹里的iconfont.json文件，修改 `font-family` 信息：
 ```
