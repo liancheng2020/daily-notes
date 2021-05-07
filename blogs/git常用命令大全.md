@@ -1,36 +1,37 @@
 ### git 常用命令大全
 
 
-- git 初始化，连接远程仓库
+- git 项目下载相关
 
 ```
+  git clone 'git仓库地址'  // 下载项目到本地环境
   git remote add origin 'git仓库地址'  // git连接远程仓库
 ```
 
-- 分支创建并关联远程仓库
+- 创建本地分支并关联远程分支
 
 ```
-    git checkout -b test  // 创建本地分支test
-    git push origin test  // 创建远程分支test
-    git branch --set-upstream-to=origin/test  // 将本地test分支与远程test分支建立关联
+  git checkout -b test  // 创建本地分支test
+  git push origin test  // 创建远程分支test
+  git branch --set-upstream-to=origin/test  // 将本地test分支与远程test分支建立关联
 ```
 
 - git 代码提交
 
 ```
-    git status        // 判断已修改还未提交的文件
-    git add .         // 将修改的文件提交到暂存区
-    git commit -m ''  // 将修改的文件由暂存区提交到仓库
-    git push          // 推送到远程仓库
+  git status        // 判断已修改还未提交的文件
+  git add .         // 将修改的文件提交到暂存区
+  git commit -m ''  // 将修改的文件由暂存区提交到仓库
+  git push          // 推送到远程仓库
 ```
 
 - branch 查看、创建、删除
 
 ```
-    git branch      // 查看本地分支
-    git branch -a   // 查看本地与远程所有分支
-    git branch -D dev             // 删除本地dev分支
-    git push origin --delete dev  // 删除远程dev分支
+  git branch      // 查看本地分支
+  git branch -a   // 查看本地与远程所有分支
+  git branch -D dev             // 删除本地dev分支
+  git push origin --delete dev  // 删除远程dev分支
 ```
 
 - commit 修改、撤销
@@ -45,8 +46,8 @@
 - tag 创建、提交、删除
 
 ```
-    git tag 1.0              // 新建一个tag
-    git push origin --tags   // 提交所有tag
-    git tag -d 1.0           // 删除本地的tag
-    git push :refs/tags/1.0  // 删除远程的tag
+  git tag 1.0              // 新建一个tag
+  git push origin --tags   // 提交所有tag
+  git tag -d 1.0           // 删除本地的tag
+  git push :refs/tags/1.0  // 删除远程的tag
 ```
