@@ -54,3 +54,12 @@
   }
 
 ```
+
+#### watch监听事件
+
+```
+  @Watch('saveReq.cycle')
+  onChange(val: string, oldVal: string) {
+    console.log(val, newVal)   // 监听对象saveReq中的cycle字段的原值、现值 
+  }
+```
