@@ -77,3 +77,12 @@
 ```
   Object.assign(target, ...sources)  // target: 目标对象，sources: 源对象
 ```
+
+
+#### vue 强制更新相关操作
+
+```
+  this.$forceUpdate()   // 强制视图刷新
+  this.$set(Array, index, newValue)  // 强制更新数组中的某个元素
+  this.$set(Object, key, value)      // 强制更新对象中的某个元素
+```
