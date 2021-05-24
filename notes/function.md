@@ -78,6 +78,24 @@
   Object.assign(target, ...sources)  // target: 目标对象，sources: 源对象
 ```
 
+#### ES6 解构赋值相关
+
+- 数组的解构赋值
+
+```
+  const arr1 = [12, 34, 30]
+  const arr2 = [10, 20, 30, 40]
+  const arr3 = [...arr1, ...arr2]  // [12, 34, 30, 10, 20, 30, 40]
+```
+
+- 对象的解构赋值（根据key值--后面的合并前面的）
+
+```
+  const str1 = {1: 'aa', 2: 'bb', 3: 'cc'}
+  const str2 = {1: 'abc', 2: 'bbc', 3: 'aa', 4: 'bb'}
+  const str3 = {...str1, ...str2}   // {1: 'abc', 2 'bbc' 3: 'aa', 4: 'bb'}
+  const str4 = {...str2, ...str1}   // {1: "aa", 2: "bb", 3: "cc", 4: "bb"}
+```
 
 #### vue 强制更新相关操作
 
