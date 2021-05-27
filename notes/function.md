@@ -104,3 +104,11 @@
   this.$set(Array, index, newValue)  // 强制更新数组中的某个元素
   this.$set(Object, key, value)      // 强制更新对象中的某个元素
 ```
+
+#### setTimeout 基础用法
+
+```
+  setTimeout(() => {
+    console.log(123)  // 500ms后输出123
+  }, 500)
+```
