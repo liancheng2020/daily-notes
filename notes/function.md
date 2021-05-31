@@ -112,3 +112,16 @@
     console.log(123)  // 500ms后输出123
   }, 500)
 ```
+
+#### debounce 用法
+
+- 引入 ts-debunce
+```
+  npm install ts-debounce    // npm安装
+  import { debounce } from 'ts-debounce'  // 使用时引入
+```
+- 相关用法如下：
+```
+  debounceExport = debounce(this.doExport, 300)  // 300ms后执行
+  debounceExport = debounce(this.doExport, 300，{ isImmediate: true })  // 立即执行
+```
