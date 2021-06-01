@@ -125,3 +125,11 @@
   debounceExport = debounce(this.doExport, 300)  // 300ms后执行
   debounceExport = debounce(this.doExport, 300，{ isImmediate: true })  // 立即执行
 ```
+
+#### vue 父子组件间的通信
+
+> - 父组件向子组件传值：父组件可以使用props向子组件传递数据；
+> - 
+> - 子组件向父组件传值：子组件通过$emit触发事件，回调给父组件；
+> - 
+> - 父组件调用子组件方法：父组件通过$refs调用子组件函数。
