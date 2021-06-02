@@ -133,3 +133,12 @@
 > - 子组件向父组件传值：子组件通过$emit触发事件，回调给父组件；
 > - 
 > - 父组件调用子组件方法：父组件通过$refs调用子组件函数。
+
+
+#### js 获取本周一和下周一时间
+
+```
+  const today = new Date()  // 今天
+  today.setDate(today.getDate() - today.getDay() + 1)  // 设置周一日期
+  const startDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()  // 获取周一所属的日期
+```
