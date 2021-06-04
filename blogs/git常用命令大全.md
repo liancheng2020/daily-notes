@@ -46,8 +46,9 @@
 - tag 创建、提交、删除
 
 ```
-  git tag 1.0              // 新建一个tag
-  git push origin --tags   // 提交所有tag
-  git tag -d 1.0           // 删除本地的tag
-  git push :refs/tags/1.0  // 删除远程的tag
+  git tag 1.0              // 新建一个名为1.0的tag
+  git push origin 1.0      // 将当前tag推到远程仓库
+  git push origin --tags   // 将所有tag推送到远程仓库
+  git tag -d 1.0           // 删除本地名为1.0的tag
+  git push origin :refs/tags/1.0  // 删除远程仓库的当前tag
 ```
