@@ -141,5 +141,6 @@
   const today = new Date()  // 今天
   today.setDate(today.getDate() - today.getDay() + 1)  // 设置周一日期
   const month = today.getMonth() + 1  // 所属月份（纯数字）
-  const startDate = today.getFullYear() + '-' + (month >= 10 ? month : '0' + month) + '-' + today.getDate()  // 获取本周一所属日期（yyyy-MM-dd格式）
+  const day = today.getDate() >= 10 ? today.getDate() : '0' + today.getDate() // 获取所属日期（dd格式）
+  const startDate = today.getFullYear() + '-' + (month >= 10 ? month : '0' + month) + '-' + day  // 获取本周一所属日期（yyyy-MM-dd格式）
 ```
