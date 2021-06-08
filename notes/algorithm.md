@@ -70,3 +70,21 @@
         console.log(arr[x]);
     }
 ```
+
+#### 对象数组去重
+
+```
+    let array = [
+        { id: 1001, name: '名称1001'},
+        { id: 1002, name: '名称1002'},
+        { id: 1001, name: '名称1001'},
+    ]
+    const arr1: string[] = [] // 去重后的数组id集合
+    const arr2: any[] = [] // 去重后的对象数组
+    array.forEach((item: any) => {
+        if (arr1.indexOf(item.id) === -1) {
+            arr1.push(item.id)
+            arr2.push(item)
+        }
+    })
+```
