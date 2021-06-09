@@ -144,3 +144,16 @@
   const day = today.getDate() >= 10 ? today.getDate() : '0' + today.getDate() // 获取所属日期（dd格式）
   const startDate = today.getFullYear() + '-' + (month >= 10 ? month : '0' + month) + '-' + day  // 获取本周一所属日期（yyyy-MM-dd格式）
 ```
+
+#### new Map() 用法
+
+```
+  const array = new Map([
+    ['a', 'aaa'],
+    ['b', 'bbb'],
+    ['c', 'ccc']
+  ]) // 定义一个map对象数组
+  array.get('c')  // 输出ccc
+  array.set('d', 'ddd')  // 创建key（d）对应的value
+  array.set('a', 'abc')  // 将key（a）对应的value（aaa）修改为value（abc）
+```
