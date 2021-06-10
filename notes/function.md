@@ -152,8 +152,16 @@
     ['a', 'aaa'],
     ['b', 'bbb'],
     ['c', 'ccc']
-  ]) // 定义一个map对象数组
+  ])  // 定义一个map对象数组
   array.get('c')  // 输出ccc
-  array.set('d', 'ddd')  // 创建key（d）对应的value
+  array.set('d', 'ddd')  // 创建key（d）对应的value（ddd）
   array.set('a', 'abc')  // 将key（a）对应的value（aaa）修改为value（abc）
+```
+
+#### reduce 简单用法
+
+```
+  const arr = [1, 2, 3, 4]
+  const sum = arr.reduce((x, y) => x + y)  // 输出10（求和）
+  const mul = arr.reduce((x, y) => x * y)  // 输出24（求积）
 ```
