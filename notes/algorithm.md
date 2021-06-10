@@ -59,18 +59,17 @@
 #### 数组去重
 
 ```
-    var array = [12, 45, 45, 32, 4, 8, 12, 4, 18];
-    var arr = [];
+    var array = [12, 45, 45, 32, 4, 8, 12, 4, 18]
+    var arr = []
     for (var i=0; i<array.length; i++) {
         if (arr.indexOf(array[i]) < 0) {
-            arr.push(array[i]);
+            arr.push(array[i])
         }
     }
     for (var x in arr) {
-        console.log(arr[x]);
+        console.log(arr[x])
     }
 ```
-
 #### 对象数组去重
 
 ```
@@ -87,4 +86,20 @@
             arr2.push(item)
         }
     })
+    console.log(arr1)  // 输出[1001, 1002]
+    console.log(arr2)  // 输出[{ id: 1001, name: '名称1001'}, { id: 1002, name: '名称1002'}]
+```
+
+#### reduce方法-数组去重
+
+```
+    const arr1 = [10, 20, 30, 10, 12, 20]
+    const arr2 = arr1.reduce((pre, cur) => {
+        if (!pre.includes(cur)) {
+            return pre.concat(cur)
+        } else {
+            return pre
+        }
+    }, [])
+    console.log(arr2)  // 输出[10, 20, 30, 12]
 ```
