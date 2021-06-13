@@ -26,7 +26,7 @@
             }
         }
     }
-    console.log(arr[x])  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
+    console.log(arr)  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
 ```
 
 #### 选择排序
@@ -44,7 +44,7 @@
         arr[i] = arr[min]
         arr[min] = temp
     }
-    console.log(arr[x])  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
+    console.log(arr)  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
 ```
 
 #### 数组去重
@@ -57,9 +57,7 @@
             arr.push(array[i])
         }
     }
-    for (var x in arr) {
-        console.log(arr[x])
-    }
+    console.log(arr)  // 输出[12, 45, 32, 8, 18]
 ```
 #### 对象数组去重
 
