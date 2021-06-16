@@ -16,6 +16,14 @@
   git branch --set-upstream-to=origin/test  // 将本地test分支与远程test分支建立关联
 ```
 
+- 拉取远程仓库代码
+
+```
+  git pull    // 不仅拉取远程的更改，还会自动进行merge操作
+  git fetch   // 仅仅只拉取远程的更改，不会自动进行merge操作
+```
+
+
 - git 代码提交
 
 ```

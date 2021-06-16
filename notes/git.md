@@ -54,5 +54,5 @@
 #### git初始化，连接远程仓库
 
 ```
-    git remote add origin 'git仓库地址' // git连接远程仓库
+    git remote add origin 'git仓库地址'  // git连接远程仓库
 ```
