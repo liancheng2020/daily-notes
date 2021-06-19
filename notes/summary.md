@@ -74,3 +74,41 @@
   console.log('1' == 1)  // 输出true
 ```
 
+10. typeof 与 instanceof 区别：
+- typeof：一般被用于判断变量的类型，但是在判断object的数据时，只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种object；
+- instanceof：用来判断对象的具体类型（判断一个实例是否属于某种类型）；
+```
+  typeof undefined   // 输出undefined
+  typeof null        // 输出object
+
+  let error = new Error()
+  typeof error === 'object'   // 输出true
+  error instanceof Error      // 输出true
+```
+
+11. 
+- 事件传播：捕获-目标-冒泡阶段；
+
+12. 
+- 行内元素：a、span、label、strong、em、 br、 img、input、select、textarea等；
+- 块级元素：div、h1~h6、p、form、ul、li、ol、dl、address、hr、menu、table等；
+
+13. 
+- 内存泄漏：无用的内存还在占用，得不到释放和归还，比较严重时，无用的内存会持续递增，从而导致整个系统卡顿，甚至崩溃；
+- 内存泄漏场景：全局变量、计时器、事件监听器、闭包、ES6 Set相关和Map键名等；
+
+14. 页面生成过程：
+- HTML 被 HTML 解析器解析成 DOM 树；
+- CSS 被 CSS 解析器解析成 CSSOM 树；
+- 结合 DOM 树和 CSSOM 树，生成一棵渲染树(Render Tree)，这一过程称为 Attachment；
+- 生成布局(flow)，浏览器在屏幕上“画”出渲染树中的所有节点；
+- 将布局绘制(paint)在屏幕上，显示出整个页面；
+
+15. 
+- 重排：也叫回流，重新生成布局，重新排列元素；
+- 重绘：当一个元素的外观发生改变，但没有改变布局，重新把元素外观绘制出来的过程；
+
+
+
+
+
