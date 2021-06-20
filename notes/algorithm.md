@@ -59,6 +59,7 @@
     }
     console.log(arr)  // 输出[12, 45, 32, 8, 18]
 ```
+
 #### 对象数组去重
 
 ```
@@ -101,6 +102,18 @@
     console.log(arr2)  // 输出[10, 20, 30, 12]
 ```
 
+#### 排序去重
+
+```
+    let array = [1, 2, 1, 1, '1']
+    function unique(array) {
+        return array.concat().sort().filter(function(item, index, array){
+            return !index || item !== array[index - 1]
+        })
+    }
+    unique(array)  // 输出[1, '1', 2]
+```
+
 #### 数组扁平化-flat()方法
 
 - 不传参数时，默认“拉平”一层；
@@ -125,3 +138,30 @@
     }
     flatArr()  // 输出[1, 2, 10, 20, 12, 10, 20, 30, 50, "string", {name: "名称"}]
 ```
+
+#### 函数柯里化
+
+- 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数；
+- 每次调用函数时，它只接受一部分参数，并返回一个函数，直到传递所有参数为止；
+
+```
+    const add = (x, y) => x+y
+    add(1, 2)  // 输出3
+
+    const add = x => y => x+y
+    add(1)(2)  // 输出3
+
+    const add = x => y => z => x+y+z
+    add(1)(2)(3)  // 输出6 
+```
+
+#### 斐波那契数列-递归
+
+```
+    function fn(n) {
+        return n < 2 ? 1 : fn(n-1) + fn(n-2)
+    }
+    console.log(fn(0), fn(1), fn(2), fn(3), fn(4), fn(5))  // 输出1, 1, 2, 3, 5, 8
+```
+
+
