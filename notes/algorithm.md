@@ -2,8 +2,8 @@
 
 ```
     let arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0
-    for (let i=0; i < arr.length; i++) {
-        for (let j= i+1; j < arr.length; j++) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i+1; j < arr.length; j++) {
             if (arr[i] > arr[j]) {
                 temp = arr[i]
                 arr[i] = arr[j]
@@ -16,8 +16,8 @@
 
 ```
     let arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0
-    for(let i=0; i<arr.length; i++) {
-        for(let j=arr.length-1; j>=i; j--)  // for(let j=0; j<arr.length-1-i; j++)
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = arr.length-1; j >= i; j--)  // for(let j = 0; j < arr.length-1-i; j++)
         {
             if (arr[j] > arr[j+1]) {
                 temp = arr[j]
@@ -33,10 +33,10 @@
 
 ```
     let arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0
-    for (let i=0; i<arr.length-1; i++) {
+    for (let i = 0; i < arr.length-1; i++) {
         let min = i;
-        for (var j=i+1; j<arr.length; j++) {
-            if (arr[j] < arr[min]) {
+        for (var j = i+1; j < arr.length; j++) {
+            if (arr[min] > arr[j]) {
                 min = j
             }
         }
@@ -52,7 +52,7 @@
 ```
     var array = [12, 45, 45, 32, 4, 8, 12, 4, 18]
     var arr = []
-    for (var i=0; i<array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
         if (arr.indexOf(array[i]) < 0) {
             arr.push(array[i])
         }
