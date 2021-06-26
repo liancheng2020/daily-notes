@@ -114,6 +114,32 @@
   a.toLocaleString()  // 输出"1,206,688"
 ```
 
+17. css 盒模型
+- 标准盒子模型：width和height指的是content的宽度和高度；
+```
+  box-sizing: content-box;
+```
+- IE盒子模型：width和height指的是content + padding + border的宽度和高度；
+```
+  box-sizing: border-box;
+```
+- 在不设置box-sizing的情况下，box-sizing默认是content-box；
+
+18. BFC 块级格式上下文
+- 触发BFC的条件：
+  - 浮动元素(float除了node以外的值)；
+  - 定位元素(position: absolute/ fixed)；
+  - display(值为inline-block/ table-cell/- table-caption/ flex/ inline-flex)；
+  - overflow(值为hidden/atuo/srcoll)设置有这些属性的box，都会产生BFC；
+- BFC特性：
+  - 内部的盒子在垂直方向上一个接一个地放置；
+  - 垂直方向上地距离由margin决定，在同一个BFC的box中，相邻的两个box边距会重叠；
+  - BFC的区域不会与float box重叠；
+  - 计算BFC的高度时，浮动元素也参与计算；
+  - BFC就是一个独立的容器，里面的子元素不受外面的元素影响；
+- BFC的作用：
+  - 解决margin重叠问题（添加独立BFC）；
+  - 解决浮动高度塌陷问题（在父元素添加overflow：hidden）；
 
 
 

@@ -23,3 +23,15 @@
 ```
   filter: blur(10px);
 ```
+
+### 三角形
+
+```
+  width: 0;
+  height: 0;
+  border-width: 0 40px 40px;
+  // border-width: 0 40px 40px 0;
+  // 设置左边border宽度为0，则为直角三角形
+  border-style: solid;
+  border-color: transparent transparent red;
+```
