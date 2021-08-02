@@ -21,12 +21,14 @@
     let formData = new FormData()
     formData.append('name', params.file.name)
     formData.append('file', params.file)
-    FileUploadApi.upload(formData).then((resp) => {
-      loading.close()
-      this.$emit('success', resp.data)
-    }).catch((e) => {
-      loading.close()
-      this.$message.error(e.message)
-    })
+    FileUploadApi.upload(formData)
+      .then((resp) => {
+        loading.close()
+        this.$emit('success', resp.data)
+      })
+      .catch((e) => {
+        loading.close()
+        this.$message.error(e.message)
+      })
   }
 ```
