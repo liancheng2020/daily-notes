@@ -9,11 +9,8 @@
   0.1 + 0.2 !== 0.3
 ```
 
-3. 如何避免内存泄露：
-- 尽可能少创建全局变量；
-- 手动清除定时器；
-- 少用闭包；
-- 清除DOM引用；
+3. 
+- 事件传播：捕获-目标-冒泡阶段；
 
 4. Virtual DOM和真实DOM的区别和优化：
 - 虚拟DOM不会立马进行排版和重绘操作；
@@ -63,7 +60,7 @@
   [...'hello']       // 输出['h', 'e', 'l', 'l', 'o']
 ```
 
-9. 
+9. js 数据类型
 - JavaScript共7种数据类型：Undefined、Null、Boolean、Number、String、Object、Symbol；
 ```
   console.log(null + 1)  // 输出1
@@ -86,35 +83,33 @@
   error instanceof Error      // 输出true
 ```
 
-11. 
-- 事件传播：捕获-目标-冒泡阶段；
-
-12. 
+11. 行内元素与块级元素
 - 行内元素：a、span、label、strong、em、 br、 img、input、select、textarea等；
 - 块级元素：div、h1~h6、p、form、ul、li、ol、dl、address、hr、menu、table等；
 
-13. 
-- 内存泄漏：无用的内存还在占用，得不到释放和归还，比较严重时，无用的内存会持续递增，从而导致整个系统卡顿，甚至崩溃；
-- 内存泄漏场景：全局变量、计时器、事件监听器、闭包、ES6 Set相关和Map键名等；
+12. 内存泄漏相关：
+- 定义：无用的内存还在占用，得不到释放和归还，比较严重时，无用的内存会持续递增，从而导致整个系统卡顿，甚至崩溃；
+- 场景：全局变量、计时器、事件监听器、闭包、ES6 Set相关和Map键名等；
+- 避免：尽可能少创建全局变量、手动清除定时器、少用闭包、清除DOM引用等。
 
-14. 页面生成过程：
+13. 页面生成过程：
 - HTML 被 HTML 解析器解析成 DOM 树；
 - CSS 被 CSS 解析器解析成 CSSOM 树；
 - 结合 DOM 树和 CSSOM 树，生成一棵渲染树(Render Tree)，这一过程称为 Attachment；
 - 生成布局(flow)，浏览器在屏幕上“画”出渲染树中的所有节点；
 - 将布局绘制(paint)在屏幕上，显示出整个页面；
 
-15. 
+14. 重排与重绘
 - 重排：也叫回流，重新生成布局，重新排列元素；
 - 重绘：当一个元素的外观发生改变，但没有改变布局，重新把元素外观绘制出来的过程；
 
-16. 千位分隔符
+15. 千位分隔符
 ```
   let a = 1206688
   a.toLocaleString()  // 输出"1,206,688"
 ```
 
-17. css 盒模型
+16. css 盒模型
 - 标准盒子模型：width和height指的是content的宽度和高度；
 ```
   box-sizing: content-box;
@@ -125,7 +120,7 @@
 ```
 - 在不设置box-sizing的情况下，box-sizing默认是content-box；
 
-18. BFC 块级格式上下文
+17. BFC 块级格式上下文
 - 触发BFC的条件：
   - 浮动元素(float除了node以外的值)；
   - 定位元素(position: absolute/ fixed)；
@@ -139,7 +134,7 @@
   - BFC就是一个独立的容器，里面的子元素不受外面的元素影响；
 - BFC的作用：
   - 解决margin重叠问题（添加独立BFC）；
-  - 解决浮动高度塌陷问题（在父元素添加overflow：hidden）；
+  - 解决浮动高度塌陷问题（在父元素添加overflow：hidden）。
 
 
 
