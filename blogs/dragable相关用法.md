@@ -1,4 +1,18 @@
+- 引入sortable.js的包
+```
+  npm install sortable.js --save
+```
+- 或者安装vuedraggable
+```
+  npm i -S vuedraggable
+```
 
+- vuedraggable依赖Sortable.js，所以下载了vuedraggable，我们便可以直接引入Sortable使用Sortable的特性；
+- vuedraggable是Sortable一种加强，实现组件化的思想，可以结合Vue，使用起来更方便；
+- 使用Sortable时，还需构建一下，
+```
+  import Sortable from 'sortablejs'
+```
 
 #### 行拖拽事件
 
