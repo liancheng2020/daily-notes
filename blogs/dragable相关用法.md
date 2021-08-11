@@ -13,6 +13,8 @@
 ```
   import Sortable from 'sortablejs'
 ```
+- 行拖拽--数据来源于以每一行数据组成的数组；
+- 列拖拽--数据来源于以每一列数据组成的数组。
 
 #### 行拖拽事件
 
@@ -24,8 +26,8 @@
       disabled: false,
       animation: 150, // 拖拽延时
       onEnd(newVal: any, oldVal: any) {
-        const currRow = self.sortList.splice(oldVal, 1)[0]
-        self.sortList.splice(newVal, 0, currRow)
+        const currRow = self.rowList.splice(oldVal, 1)[0]
+        self.rowList.splice(newVal, 0, currRow)
       }
     }) // 创建排序table
   }
@@ -40,9 +42,9 @@
       animation: 180,
       delay: 0,
       onEnd(evt: any) {
-        const oldItem = this.dropCol[evt.oldIndex]
-        this.dropCol.splice(evt.oldIndex, 1)
-        this.dropCol.splice(evt.newIndex, 0, oldItem)
+        const oldItem = this.colList[evt.oldIndex]
+        this.colList.splice(evt.oldIndex, 1)
+        this.colList.splice(evt.newIndex, 0, oldItem)
       }
     })
   }
