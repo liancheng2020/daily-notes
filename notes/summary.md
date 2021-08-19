@@ -136,6 +136,13 @@
   - 解决margin重叠问题（添加独立BFC）；
   - 解决浮动高度塌陷问题（在父元素添加overflow：hidden）。
 
+18. 
+```
+  Boolean('false')   // 输出true
+  Boolean(false)     // 输出false
+  Boolean(null)      // 输出false
+```
+
 
 
 
