@@ -143,6 +143,11 @@
   Boolean(null)      // 输出false
 ```
 
+19. 
+- v-model.lazy：在“change”时而非“input”时更新；
+- v-model.number：自动将用户的输入值转为数值类型；
+- v-model.trim：自动过滤用户输入的首尾空白字符；
+
 
 
 
