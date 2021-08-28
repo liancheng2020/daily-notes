@@ -113,8 +113,13 @@
 
 ```
   setTimeout(() => {
-    console.log(123)  // 500ms后输出123
+    console.log(123)   // 500ms后输出123
   }, 500)
+
+  const timer = setTimeout(() => {
+    console.log(123)
+    clearTimeout(timer) // 1s后输出123，并清除定时器timer
+  }, 1000)
 ```
 
 #### debounce 用法
