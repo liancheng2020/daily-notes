@@ -148,6 +148,15 @@
 - v-model.number：自动将用户的输入值转为数值类型；
 - v-model.trim：自动过滤用户输入的首尾空白字符；
 
+20. async 和 await
+```
+  await this.query() // 执行query方法完成后，才会执行下一步
+
+  async query() {
+    console.log(query)
+  }
+```
+
 
 
 
