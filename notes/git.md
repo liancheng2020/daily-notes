@@ -48,6 +48,8 @@
     git reset --soft HEAD^    // 撤销上一次的commit，不撤销add
     git reset --hard HEAD^    // 撤销上一次提交的commit和add
     git reset --hard HEAD～2  // 撤销前两次提交的commit和add
+
+    git revert <commit_id>    // 本地代码回滚到指定的commit，此时再push一下，即更新远程仓库代码
 ```
 
 
