@@ -174,3 +174,21 @@
   const sum = arr.reduce((x, y) => x + y)  // 输出10（求和）
   const mul = arr.reduce((x, y) => x * y)  // 输出24（求积）
 ```
+
+#### 获取 url 上的多个参数
+```
+  const url = 'http://www.runoob.com/index.php?id=1&image=awesome.jpg'
+
+  function getQueryParam(param) {
+    let array = url.substring(url.indexOf('?') + 1).split('&')  // 输出['id=1', 'image=awesome.jpg']
+    for (let i = 0; i < array.length; i ++) {
+      let tempArray = array[i].split('=')
+      if (tempArray[0] === param) {
+        return tempArray[1]
+      }
+    }
+  }
+
+  getQueryParam('id')     // 输出'1'
+  getQueryParam('image')  // 输出'awesome.jpg'
+```
