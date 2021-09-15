@@ -66,11 +66,8 @@
   // 输出结果：[0, 'Red'] [1, 'Green'] [2, 'Blue']
 ```
 
+#### Array常用方法
 
-
-
-
->
 > - join: 通过指定连接符生成字符串
 >
 > - push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
@@ -87,8 +84,6 @@
 >
 > - indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
 >
-> - reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)
-> 
 > - includes: 判断数组中是否包含指定的元素，如果是返回 true，否则返回 false
 
 
@@ -103,7 +98,6 @@
 - Math.ceil(): 返回一个大于或等于当前数字的整数
 - Math.floor(): 返回一个小于或等于当前数字的整数
 - Math.round(): 返回一个四舍五入最接近当前数字的整数
-
 
 #### 保留小数位数
 
