@@ -68,23 +68,23 @@
 
 #### Array常用方法
 
-> - join: 通过指定连接符生成字符串
->
-> - push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
->
-> - unshift / shift: 头部推入和弹出，改变原数组，返回操作项
->
-> - sort(fn) / reverse: 排序与反转，改变原数组
->
-> - concat: 连接数组，不影响原数组， 浅拷贝
->
-> - slice(start, end): 返回截断后的新数组，不改变原数组
->
-> - splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组
->
-> - indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
->
-> - includes: 判断数组中是否包含指定的元素，如果是返回 true，否则返回 false
+- join: 通过指定连接符生成字符串
+
+- push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项
+
+- unshift / shift: 头部推入和弹出，改变原数组，返回操作项
+
+- sort / reverse: 排序与反转，改变原数组
+
+- concat: 连接数组，不影响原数组， 浅拷贝
+
+- slice(start, end): 返回截断后的新数组，不改变原数组
+
+- splice(start, number, value...): 返回删除元素组成的数组，value 为插入项，改变原数组
+
+- indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标
+
+- includes: 判断数组中是否包含指定的元素，如果是返回 true，否则返回 false
 
 
 #### Array.from()方法
