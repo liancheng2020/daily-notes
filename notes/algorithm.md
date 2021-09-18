@@ -164,4 +164,16 @@
     console.log(fn(0), fn(1), fn(2), fn(3), fn(4), fn(5))  // 输出1, 1, 2, 3, 5, 8
 ```
 
+#### 对象数组排序
+```
+    const arr = [
+        { id: 1001, name: '名称1001'},
+        { id: 1002, name: '名称1002'},
+        { id: 1001, name: '名称1001'},
+    ]
+   
+    arr.sort((a, b) => { return a.id - b.id })  // 按照id-升序排序
+    arr.sort((a, b) => { return b.id - a.id })  // 按照id-降序排序
+```
+
 
