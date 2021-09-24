@@ -14,11 +14,11 @@
     </el-select>
 
 ```
-    doCustomerFilter(query: string = '') {
+    doCustomerFilter(keyword: string = '') {
       const param = new QueryParam()
       param.start = 0
       param.limit = 20
-      query && param.filters.push({ property: 'keyword:%=%', value: query })
+      keyword && param.filters.push({ property: 'keyword:%=%', value: keyword })
       this.customerList = []
       this.loading = true
       CustomerApi.query(param)
