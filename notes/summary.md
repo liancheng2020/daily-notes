@@ -179,6 +179,12 @@
 22. 
 - input框的回车事件：@keydown.enter.native
 
+23. display: none 与 visible: hidden的区别：
+```
+  display: none   --- 隐藏元素，不保留物理空间；
+  visible: hidden --- 隐藏元素，物理空间还在；
+```
+
 
 
 
