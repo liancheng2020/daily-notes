@@ -145,7 +145,7 @@
   Boolean(null)      // 输出false
 ```
 
-19. 
+19. v-model 修饰符
 - v-model.lazy：input框绑定数值在“change”时而非“input”时更新；
 - v-model.number：自动将用户的输入值转为数值类型；
 - v-model.trim：自动过滤用户输入的首尾空白字符；
@@ -176,7 +176,7 @@
   })
 ```
 
-22. 
+22. input框-回车事件
 - input框的回车事件：@keydown.enter.native
 
 23. display: none 与 visible: hidden的区别：
