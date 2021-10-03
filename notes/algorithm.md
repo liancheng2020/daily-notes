@@ -176,4 +176,14 @@
     arr.sort((a, b) => { return b.id - a.id })  // 按照id-降序排序
 ```
 
+#### 将一个非负整数数组里的所有数字拼接，打印出能拼接出的所有数字中最小的那个
+```
+    const minNumber = function(nums) {
+        nums = nums.sort((a, b) => {
+            return Number(String(a) + String(b)) - Number(String(b) + String(a))
+        })
+        return nums.join('')
+    }
+```
+
 
