@@ -185,12 +185,14 @@
   visible: hidden --- 隐藏元素，物理空间还在；
 ```
 
-24. Set 对象方法
-- add：添加某个值，返回Set对象本身；
-- clear：删除所有的键/值对，没有返回值；
-- delete：删除某个键，返回true。如果删除失败，返回false；
-- forEach：对每个元素执行指定操作；
-- has：判断某个键是否在当前Set对象之中，是返回true，否返回false；
+24. Set 相关
+- ES6 提供了新的数据结构Set，它类似于数组，但是成员的值都是唯一的，没有重复的值；
+- Set本身是一个构造函数，用来生成Set数据结构，不会添加重复的值；
+
+- add(value)：添加某个值，返回Set对象本身；
+- delete(value)：删除某个值，成功返回true，失败返回false；
+- has(value)：判断某个值是否在当前Set对象之中，是返回true，否返回false；
+- clear()：删除所有的键/值对，没有返回值；
 ```
   const a = new Set([1, 2, 3])
   const b = new Set([4, 3, 2])
