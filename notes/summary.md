@@ -185,7 +185,19 @@
   visible: hidden --- 隐藏元素，物理空间还在；
 ```
 
+24. Set 对象方法
+- add：添加某个值，返回Set对象本身；
+- clear：删除所有的键/值对，没有返回值；
+- delete：删除某个键，返回true。如果删除失败，返回false；
+- forEach：对每个元素执行指定操作；
+- has：判断某个键是否在当前Set对象之中，是返回true，否返回false；
+```
+  const a = new Set([1, 2, 3])
+  const b = new Set([4, 3, 2])
 
+  const unionSet = new Set(...a, ...b)  // 并集 {1, 2, 3, 4} 
+  const interSet = new Set([...a].filter(x => b.has(x)))  // 交集 {2, 3}
+```
 
 
 
