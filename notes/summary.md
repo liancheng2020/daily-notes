@@ -55,10 +55,13 @@
 ```
   let arr1 = [10, 20, 30]
   let arr2 = [12, ...arr1]  // 输出[12, 10, 20, 30]
+
   let [...arr3] = arr2 
   console.log(arr3)  // 输出[12, 10, 20, 30]
+
   let [arr4, ...arr5] = arr3
   console.log(arr4, arr5)   // 输出12, [10, 20, 30]
+
   [...'hello']       // 输出['h', 'e', 'l', 'l', 'o']
 ```
 
@@ -186,8 +189,11 @@
 ```
 
 24. Set 相关
-- ES6 提供了新的数据结构Set，它类似于数组，但是成员的值都是唯一的，没有重复的值；
+- ES6提供了新的数据结构Set，它类似于数组，但是成员的值都是唯一的，没有重复的值；
 - Set本身是一个构造函数，用来生成Set数据结构，不会添加重复的值；
+- 向Set加入值的时候，不会发生类型转换，所以5和'5'是两个不同的值；
+- Array.from方法可以将Set结构转为数组；
+- Set 结构没有键名，只有键值（或者说键名和键值是同一个值）；
 
 - add(value)：添加某个值，返回Set对象本身；
 - delete(value)：删除某个值，成功返回true，失败返回false；
@@ -196,9 +202,11 @@
 ```
   const a = new Set([1, 2, 3])
   const b = new Set([4, 3, 2])
-
   const unionSet = new Set(...a, ...b)  // 并集 {1, 2, 3, 4} 
   const interSet = new Set([...a].filter(x => b.has(x)))  // 交集 {2, 3}
+
+  const c = new Set('aaabbbbc')
+  const duplSet = [...c].join('')  // 字符串去重 'abc'
 ```
 
 25. String 实例方法
@@ -242,10 +250,37 @@
   str.replaceAll('b', '_')   // 'aa__cc'
 ```
 
+26. Object.is()
+- 比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致；
+```
+  +0 === -0     // true
+  NaN === NaN   // false
+
+  Object.is(+0, -0)    // false
+  Object.is(NaN, NaN)  // true
+```
+
+27. Object.assign()
+- 方法实行的是浅拷贝，而不是深拷贝；
+- 可以用来处理数组，但是会把数组视为对象；
+```
+  const obj1 = {a: 1001}
+  const obj2 = Object.assign({}, obj1)  // {a: 1001}
+  obj1.a = 1002
+  console.log(obj2)  // 输出{a: 1002}
+
+  Object.assign([1, 2, 3], [4, 5])  // [4, 5, 3]
+```
+
+28. 指数运算符 **
+- 多个运算符连用时，是从最右边开始计算的
+```
+  2 ** 3 ** 2   // 相当于2 **（3 ** 2）= 512
+```
 
 
 
-
+ 
 
 
 
