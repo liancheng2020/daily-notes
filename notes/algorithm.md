@@ -50,14 +50,22 @@
 #### 数组去重
 
 ```
-    var array = [12, 45, 45, 32, 4, 8, 12, 4, 18]
-    var arr = []
-    for (var i = 0; i < array.length; i++) {
-        if (arr.indexOf(array[i]) < 0) {
-            arr.push(array[i])
+    let arr1 = [12, 45, 45, 32, 4, 8, 12, 4, 18], arr2 = []
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr2.indexOf(arr1[i]) < 0) {
+            arr2.push(arr1[i])
         }
     }
-    console.log(arr)  // 输出[12, 45, 32, 8, 18]
+    console.log(arr2)  // 输出[12, 45, 32, 4, 8, 18]
+```
+
+#### indexOf 去重
+
+```
+    let arr = [12, 45, 45, 32, 4, 8, 12, 4, 18]
+    arr = arr.filter((item, index) => arr.indexOf(item) === index)
+
+    console.log(arr) // 输出输出[12, 45, 32, 4, 8, 18]
 ```
 
 #### 对象数组去重
