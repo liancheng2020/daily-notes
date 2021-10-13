@@ -47,6 +47,41 @@
     console.log(arr)  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
 ```
 
+#### 快速排序
+```
+    let quickSort = function(arr) {
+        if (arr.length <= 1) { 
+            return arr 
+        }
+        let pivotIndex = Math.floor(arr.length / 2)
+        let pivot = arr.splice(pivotIndex, 1)[0]
+        let left = [], right = []
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < pivot) {
+                left.push(arr[i])
+            } else {
+                right.push(arr[i])
+            }
+        }
+        return quickSort(left).concat([pivot], quickSort(right))
+    }
+```
+
+#### 插入排序
+```
+    let insertSort = function(arr) {
+        let i = 0, j = 0, temp = 0
+        for (i = 0; i < arr.length; i++) {
+            temp = arr[i]
+            for (j = i-1; j > -1 && arr[j] > temp; j--) {
+                arr[j+1] = arr[j]
+            }
+            arr[j+1] = temp
+        }
+        return arr
+    }
+```
+
 #### 数组去重
 
 ```
