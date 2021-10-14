@@ -1,50 +1,39 @@
 #### 冒泡排序
 
 ```
-    let arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i+1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) {
-                temp = arr[i]
-                arr[i] = arr[j]
-                arr[j] = temp
+    let bubbleSort = function(arr) {
+        let i, j, temp
+        for (i = 0; i < arr.length; i++) {
+            for (j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i]
+                    arr[i] = arr[j]
+                    arr[j] = temp
+                }
             }
         }
+        return arr
     }
-    console.log(arr)  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
-```
-
-```
-    let arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = arr.length-1; j >= i; j--)  // for(let j = 0; j < arr.length-1-i; j++)
-        {
-            if (arr[j] > arr[j+1]) {
-                temp = arr[j]
-                arr[j] = arr[j+1]
-                arr[j+1] = temp
-            }
-        }
-    }
-    console.log(arr)  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
 ```
 
 #### 选择排序
 
 ```
-    let arr = [12, 34, 3, 24, 78, 90, 16, 45], temp = 0
-    for (let i = 0; i < arr.length-1; i++) {
-        let min = i;
-        for (var j = i+1; j < arr.length; j++) {
-            if (arr[min] > arr[j]) {
-                min = j
+    let selectSort = function(arr) {
+        let i, j, temp, min
+        for (i = 0; i < arr.length - 1; i++) {
+            min = i
+            for (j = i+1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j
+                }
             }
+            temp = arr[i]
+            arr[i] = arr[min]
+            arr[min] = temp
         }
-        temp = arr[i]
-        arr[i] = arr[min]
-        arr[min] = temp
+        return arr
     }
-    console.log(arr)  // 输出[3, 12, 16, 24, 34, 45, 78, 90]
 ```
 
 #### 快速排序
@@ -70,7 +59,7 @@
 #### 插入排序
 ```
     let insertSort = function(arr) {
-        let i = 0, j = 0, temp = 0
+        let i, j, temp
         for (i = 0; i < arr.length; i++) {
             temp = arr[i]
             for (j = i-1; j > -1 && arr[j] > temp; j--) {
