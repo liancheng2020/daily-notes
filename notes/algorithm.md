@@ -117,6 +117,7 @@
 ```
     const arr1 = [10, 20, 30, 10, 12, 20]
     const arr2 = [...new Set(arr1)]
+    
     console.log(arr2)  // 输出[10, 20, 30, 12]
 ```
 
