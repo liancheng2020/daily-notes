@@ -18,12 +18,6 @@
   -webkit-line-clamp: 2;
 ```
 
-#### 滤镜
-
-```
-  filter: blur(10px);
-```
-
 #### 三角形
 
 ```
