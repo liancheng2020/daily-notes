@@ -281,6 +281,14 @@
 29. Promise.finally()
 - Promise.finally()：不管promise状态如何，都会执行的操作；
 
+30. 表单校验：clearValidate()用法
+```
+  <el-form-item ref="target"></el-form-item>
+
+  this.$refs.target.clearValidate()
+```
+
+
 
  
 
