@@ -285,7 +285,7 @@
 ```
   <el-form-item ref="target"></el-form-item>
 
-  this.$refs.target.clearValidate()
+  this.$refs.target.clearValidate()  // 清除该表单的校验
 ```
 
 
