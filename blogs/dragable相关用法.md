@@ -20,6 +20,7 @@
 
 ```
   rowDrop() {
+    const sortList = this.rowList // 排序数组
     const tbody = document.querySelector('.el-table__body-wrapper tbody')
     const self = this
     self.sortTable = Sortable.create(tbody, {
@@ -27,7 +28,9 @@
       animation: 150, // 拖拽延时
       onEnd(newVal: any, oldVal: any) {
         const currRow = self.rowList.splice(oldVal, 1)[0]
-        self.rowList.splice(newVal, 0, currRow)
+        self.rowList.splice(newVal, 0, currRow)   // 界面拖拽处理
+        const temp: any = sortList.splice(newVal.oldIndex, 1)[0]
+        sortList.splice(newVal.newIndex, 0, temp) // 实际数组排序处理
       }
     }) // 创建排序table
   }
