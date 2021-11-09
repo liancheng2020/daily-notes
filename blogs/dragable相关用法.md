@@ -19,6 +19,8 @@
 #### 行拖拽事件
 
 ```
+  sortTable: any  // 排序table
+
   rowDrop() {
     const sortList = this.rowList // 排序数组
     const tbody = document.querySelector('.el-table__body-wrapper tbody')
@@ -34,6 +36,8 @@
       }
     }) // 创建排序table
   }
+
+  this.sortTable.destroy()  // 销毁排序table
 ```
 
 #### 列拖拽事件
