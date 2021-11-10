@@ -19,10 +19,11 @@
 #### 行拖拽事件
 
 ```
+  rowList: any[] = []  // 原数组
+  sortList: any[] = [] // 排序数组
   sortTable: any  // 排序table
 
   rowDrop() {
-    const sortList = this.rowList // 排序数组
     const tbody = document.querySelector('.el-table__body-wrapper tbody')
     const self = this
     self.sortTable = Sortable.create(tbody, {
@@ -32,7 +33,7 @@
         const currRow = self.rowList.splice(oldVal, 1)[0]
         self.rowList.splice(newVal, 0, currRow)   // 界面拖拽处理
         const temp: any = sortList.splice(newVal.oldIndex, 1)[0]
-        sortList.splice(newVal.newIndex, 0, temp) // 实际数组排序处理
+        self.sortList.splice(newVal.newIndex, 0, temp) // 实际数组排序处理
       }
     }) // 创建排序table
   }
