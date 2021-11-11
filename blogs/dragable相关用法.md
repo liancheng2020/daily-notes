@@ -33,7 +33,7 @@
         const currRow = self.rowList.splice(oldVal, 1)[0]
         self.rowList.splice(newVal, 0, currRow)   // 界面拖拽处理
         const temp: any = sortList.splice(newVal.oldIndex, 1)[0]
-        self.sortList.splice(newVal.newIndex, 0, temp) // 实际数组排序处理
+        self.sortList.splice(newVal.newIndex, 0, temp) // 排序数组实际处理
       }
     }) // 创建排序table
   }
