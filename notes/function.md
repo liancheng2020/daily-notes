@@ -62,9 +62,9 @@
     console.log(val, newVal)   // 监听对象saveReq中的cycle字段的原值、现值 
   }
 
-  @Watch('value', { immediate: true })
-  stepChange() {
-    console.log(value)   // 加上immediate，代表立即监听
+  @Watch('value', { immediate: true, deep: true })
+  valueChange() {
+    console.log(value)  // 加上immediate（代表立即监听）、加上deep（代表深度监听）
   }
 ```
 
