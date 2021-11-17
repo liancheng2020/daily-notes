@@ -116,14 +116,12 @@
 
 16. css 盒模型
 - 标准盒子模型：width和height指的是content的宽度和高度；
-```
-  box-sizing: content-box;
-```
 - IE盒子模型：width和height指的是content + padding + border的宽度和高度；
-```
-  box-sizing: border-box;
-```
 - 在不设置box-sizing的情况下，box-sizing默认是content-box；
+```
+  box-sizing: content-box; // 标准盒子
+  box-sizing: border-box;  // IE盒子
+```
 
 17. BFC 块级格式上下文
 - 触发BFC的条件：
@@ -304,7 +302,40 @@
 
 33. CSS 选择器优先级
 - 内联样式 》id选择器 》类选择器、伪类选择器 》标签选择器、伪元素选择器；
-- !important 声明的样式的优先级最高；
+- !important 声明的样式的优先级最高。
+
+34. 伪类、伪元素：
+- 伪类是通过在元素选择器上加入伪类改变元素状态；
+- 伪元素是通过对元素的操作进行对元素的改变；
+- 冒号（:）用于伪类，双冒号（::）用于伪元素。
+```
+  // 伪类
+  a:hover { color: #ffffff }
+  p:first-child { color: red }
+
+  // 伪元素
+  p::before { content: '一 ' }
+  p::first-line { background: red }
+```
+
+35. CSS 预处理器 scss、less，为什么使用它们？
+- 结构清晰，便于扩展；
+- 可以很方便屏蔽浏览器私有语法之间的差异；
+- 可以轻松实现多重继承；
+- 完美的兼容了CSS代码，可以应用到老项目中。
+
+36. Webpack能处理 CSS 吗？如何实现？
+- Webpack在loader的辅助下，是可以处理CSS的；
+- Webpack中操作CSS使用的两个关键的loader：css-loader 和 style-loader；
+  - css-loader：导入CSS模块，对CSS代码进行编译处理；
+  - style-loader：创建style标签，把CSS内容写入标签；
+- 在实际使用中，css-loader的执行顺序一定排在style-loader之前，因为只有完成了编译过程，才能对css代码进行插入。
+
+37. CSS 布局单位
+- em：相对于父元素；
+- rem：相对于根元素；
+
+
 
 
 
