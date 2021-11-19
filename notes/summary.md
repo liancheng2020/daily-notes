@@ -331,18 +331,12 @@
   - style-loader：创建style标签，把CSS内容写入标签；
 - 在实际使用中，css-loader的执行顺序一定排在style-loader之前，因为只有完成了编译过程，才能对css代码进行插入。
 
-37. CSS 布局单位
+37. CSS 布局单位：
 - em：相对于父元素；
 - rem：相对于根元素；
 
 
 
-
-
-
-
-
- 
 
 
 
