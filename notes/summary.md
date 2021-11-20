@@ -335,6 +335,39 @@
 - em：相对于父元素；
 - rem：相对于根元素；
 
+38. 判断是数组的方式：
+- 通过Object.prototype.toString.call()做判断；
+- 通过原型链做判断；
+- 通过ES6的Array.isArray()做判断；
+- 通过instanceof做判断；
+- 通过Array.prototype.isPrototypeOf做判断；
+```
+  const arr = [12, 30, 90]
+
+  Object.prototype.toString.call(arr)   // 输出'[object Array]'
+  Object.prototype.toString.call(arr).slice(8,-1) === 'Array'  // true
+
+  arr.__proto__ === Array.prototype  // true
+
+  Array.isArray(arr)     // true
+
+  arr instanceof Array   // true
+
+  Array.prototype.isPrototypeOf(arr)  // true
+```
+
+39. for in与for of的区别：
+- for...in：可以遍历对象、数组，返回键名（key）;
+- for...of：只能遍历数组，返回键值（value）;
+- for...in 循环主要是为了遍历对象而生，不适用于遍历数组;
+- for...of 循环可以用来遍历数组、类数组对象，字符串、Set、Map 以及 Generator 对象;
+
+40. 
+- 数组和字符串的转换方法：toString()、toLocalString()、join()；
+
+
+
+
 
 
 
