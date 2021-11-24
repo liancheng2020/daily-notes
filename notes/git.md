@@ -58,3 +58,10 @@
 ```
     git remote add origin 'git仓库地址'  // git连接远程仓库
 ```
+
+#### git 拉取远程仓库代码
+
+```
+  git pull    // 不仅拉取远程的更改，还会自动进行merge操作
+  git fetch   // 仅仅只拉取远程的更改，不会自动进行merge操作
+```
