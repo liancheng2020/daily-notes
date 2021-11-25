@@ -41,7 +41,6 @@
     git commit --amend   // 修改最近一次的commit信息
 ```
 
-
 #### git 撤销commit
 
 ```
@@ -51,7 +50,6 @@
 
     git revert <commit_id>    // 本地代码回滚到指定的commit，此时再push一下，即更新远程仓库代码
 ```
-
 
 #### git初始化，连接远程仓库
 
