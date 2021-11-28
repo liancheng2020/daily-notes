@@ -52,33 +52,33 @@
 10. Javascript绑定事件的方法?
 - 嵌入DOM：
 ```
-<button onclick="open()">按钮</button>
-<script>
-    function open(){
-        alert(1);
-    }
-</script>
+    <button onclick="open()">按钮</button>
+    <script>
+        function open(){
+            alert(1);
+        }
+    </script>
 ```
 - 直接绑定：
 ```
-<button id="btn">按钮</button>
-<script>
-    document.getElementById('btn').onclick = function(){
-        alert(1);
-    }
-</script>
+    <button id="btn">按钮</button>
+    <script>
+        document.getElementById('btn').onclick = function(){
+            alert(1);
+        }
+    </script>
 ```
 - 事件监听：
 ```
-<button id="btn">按钮</button>
-<script>
-    document.getElementById('btn').addEventListener('click',function(){
-        alert(1);
-    })
-    document.getElementById('btn').attachEvent('click',function(){
-        alert(1);
-    })
-</script>
+    <button id="btn">按钮</button>
+    <script>
+        document.getElementById('btn').addEventListener('click',function(){
+            alert(1);
+        })
+        document.getElementById('btn').attachEvent('click',function(){
+            alert(1);
+        })
+    </script>
 ```
 
 11. 同步和异步的区别?
@@ -93,4 +93,4 @@
 - 利用setTimout实现异步；
 - 动态创建script标签；
 - 利用script标签提供的async；
-- 使用Promise对象。
+- 使用Promise对象；
