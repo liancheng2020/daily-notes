@@ -29,10 +29,10 @@
   - 开发风格：react推荐做法jsx + inline style把html和css都写在js了，vue是采用webpack + vue-loader单文件组件格式，html, js, css同一个文件；
 
 4. MVVM框架？
-- MVVM 是 Model-View-ViewModel 的缩写。
-- Model 代表数据模型，也可以在Model中定义数据修改和操作的业务逻辑；
-- View 代表UI 组件，它负责将数据模型转化成UI 展现出来；
-- ViewModel 监听模型数据的改变和控制视图行为、处理用户交互，简单理解就是一个同步View 和 Model的对象，连接Model和View；
+- MVVM：是Model-View-ViewModel的缩写；
+- Model：代表数据模型，也可以在Model中定义数据修改和操作的业务逻辑；
+- View：代表UI组件，它负责将数据模型转化成UI展现出来；
+- ViewModel：监听模型数据的改变和控制视图行为、处理用户交互，简单理解就是一个同步View和Model的对象，连接Model和View；
 
 5. Vue的双向数据绑定原理是什么？
 - Vue的双向数据绑定是由数据劫持结合发布者-订阅者模式实现的；
