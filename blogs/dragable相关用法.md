@@ -44,16 +44,21 @@
 #### 列拖拽事件
 
 ```
+  columnList: any[] = []  // 原数组
+  sortList: any[] = [] // 排序数组
+  sortTable: any  // 排序table
+
   columnDrop() {
-    const wrapperTr = document.querySelector('.el-table__header-wrapper tr')
-    this.sortable = Sortable.create(wrapperTr, {
-      animation: 180,
-      delay: 0,
-      onEnd(evt: any) {
-        const oldItem = this.colList[evt.oldIndex]
-        this.colList.splice(evt.oldIndex, 1)
-        this.colList.splice(evt.newIndex, 0, oldItem)
+    const tbody = document.getElementById('sort')
+    const self = this
+    self.sortTable = Sortable.create(tbody, {
+      animation: 150, // 拖拽延时
+      onEnd(val: any) {
+        const curColumn = self.sortList.splice(val.oldIndex, 1)[0]
+        self.sortList.splice(val.newIndex, 0, curColumn)
       }
-    })
+    }) // 创建排序table
   }
+
+  this.sortTable.destroy()  // 销毁排序table
 ```
