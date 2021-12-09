@@ -9,7 +9,7 @@
   - 在beforeCreated阶段，vue实例的挂载元素$el和数据对象data都为undefined，还未初始化；
   - 在created阶段，vue实例的数据对象data有了，$el还没有；
 - 载入前/后：
-  - 在beforeMount阶段，vue 实例的$el和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换；
+  - 在beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换；
   - 在mounted阶段，vue实例挂载完成，data.message成功渲染；
 - 更新前/后：当data变化时，会触发beforeUpdate和updated方法；
 - 销毁前/后：在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在；
@@ -75,7 +75,21 @@
   - v-if适合运营条件不大可能改变；
   - v-show适合频繁切换；
 
-8. computed和watch的区别？
+8. Vue修饰符有哪些？
+- 事件修饰符：
+  - .stop：阻止事件继续传播；
+  - .prevent：阻止标签默认行为；
+  - .capture：使用事件捕获模式,即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理；
+  - .self：只当在 event.target 是当前元素自身时触发处理函数；
+  - .once：事件将只会触发一次；
+  - .passive：告诉浏览器你不想阻止事件的默认行为；
+- v-model的修饰符：
+  - .lazy：通过这个修饰符，转变为在change事件再同步；
+  - .number：自动将用户的输入值转化为数值类型；
+  - .trim：自动过滤用户输入的首尾空格；
+- 键盘事件的修饰符：.enter、.tab、.delete（补获删除键和退格键）、.up、.down；
+
+9. computed和watch的区别？
 - 如果一个数据依赖于其他数据，那么把这个数据设计为computed的；
 - 如果你需要在某个数据变化时做一些事情，使用watch来观察这个数据变化；
 - 两者区别：
@@ -83,23 +97,23 @@
   - watch则主要用于观测某个值的变化去完成一段开销较大的复杂业务逻辑；
   - computed和watch都起到监听/依赖一个数据，并进行处理的作用，它们其实都是vue对监听器的实现；
 
-9. vue.extend和vue.component？
+10. vue.extend和vue.component？
 > - extend：是构造一个组件的语法器，然后这个组件你可以作用到Vue.component这个全局注册方法里，还可以在任意vue模板里使用组件，也可以作用到vue实例或者某个组件中的components属性中并在内部使用apple组件；
-> - Vue.component：你可以创建 ，也可以取组件；
+> - Vue.component：你可以创建，也可以取组件；
 
-10. $nextTick原理及作用？
+11. $nextTick原理及作用？
 - Vue的nextTick其本质是对JavaScript执行原理EventLoop的一种应用；
-- nextTick的核心是利用了如Promise 、MutationObserver、setImmediate、setTimeout的原生JavaScript方法来模拟对应的微/宏任务的实现，本质是为了利用JavaScript的这些异步回调任务队列来实现Vue框架中自己的异步回调队列；
+- nextTick的核心是利用了如Promise、MutationObserver、setImmediate、setTimeout的原生JavaScript方法来模拟对应的微/宏任务的实现，本质是为了利用JavaScript的这些异步回调任务队列来实现Vue框架中自己的异步回调队列；
 - nextTick不仅是Vue内部的异步队列的调用方法，同时也允许开发者在实际项目中使用这个方法来满足实际应用中对DOM更新数据时机的后续逻辑处理；
 
-11. 为什么虚拟DOM会提高性能？
+12. 为什么虚拟DOM会提高性能？
 - 虚拟DOM相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提高性能；
 - 具体实现步骤：
   - 用JavaScript对象结构表示DOM树的结构；然后用这个树构建一个真正的DOM树，插到文档中；
   - 当状态变更的时候，重新构造一棵树的对象树，然后用新的树和旧的树进行对比，记录两棵树差异；
   - 把步骤2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了；
 
-12. Vue3有什么更新？
+13. Vue3有什么更新？
 - 监测机制的改变：
   - vue3将带来基于代理Proxy的observer实现，提供全语言覆盖的反应性跟踪；
   - 消除了Vue2当中基于Object.defineProperty的实现所存在的很多限制；
