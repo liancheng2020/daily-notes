@@ -2,7 +2,7 @@
 - JavaScript共有八种数据类型，分别是Undefined、Null、Boolean、Number、String、Object、Symbol、BigInt；
 - 其中Symbol和BigInt是ES6中新增的数据类型：
     - Symbol代表创建后独一无二且不可变的数据类型，它主要是为了解决可能出现的全局变量冲突的问题；
-    - BigInt是一种数字类型的数据，它可以表示任意精度格式的整数，使用 BigInt 可以安全地存储和操作大整数，即使这个数已经超出了Number能够表示的安全整数范围；
+    - BigInt是一种数字类型的数据，它可以表示任意精度格式的整数，使用BigInt可以安全地存储和操作大整数，即使这个数已经超出了Number能够表示的安全整数范围；
 - 这些数据可以分为原始数据类型和引用数据类型：
     - 栈：原始数据类型（Undefined、Null、Boolean、Number、String）；
     - 堆：引用数据类型（对象、数组和函数）；
@@ -37,11 +37,9 @@
     - 如果创建一个对象来改变它的原型，constructor就不能用来判断数据类型了；
 ```
     function Fn(){}
-
     Fn.prototype = new Array()
-    
     var f = new Fn()
-    
+
     console.log(f.constructor === Fn)      // false
     console.log(f.constructor === Array)   // true
 ```
@@ -114,7 +112,7 @@
 - 箭头函数不能作为构造函数使用，使用new调用箭头函数会报错；
 
 9. JavaScript的原型、原型链有什么特点？
-- 每个对象都会在其内部初始化一个属性，就是prototype（原型），
+- 每个对象都会在其内部初始化一个属性，就是prototype（原型）；
 - 当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是这样一直找下去，也就是我们所说的原型链的概念。
 - 特点：
   - JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有属于自己的原型副本；
@@ -139,8 +137,8 @@
 - 它是基于JavaScript的一个子集，数据格式简单, 易于读写, 占用带宽小；
 
 13. document.write和innerHTML的区别？
-- document.write 只能重绘整个页面； 
-- innerHTML 可以重绘页面的一部分；
+- document.write只能重绘整个页面； 
+- innerHTML可以重绘页面的一部分；
 
 14. Javscript的事件？
 - JavaScript 使我们有能力创建动态页面，事件是可以被 JavaScript 侦测到的行为；

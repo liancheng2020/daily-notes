@@ -23,7 +23,7 @@
 
 4. CSS3的新特性?
 - 新增各种CSS选择器；
-- 圆角：border-radiuis；
+- 圆角：border-radius；
 - 多列布局：multi-column layout；
 - 阴影和反射：multi-column layout；
 - 文字特效：text-shadow；
@@ -48,7 +48,7 @@
   - link支持使用Javascript控制DOM去改变样式，而@import不支持；
 
 7. position定位问题？
-- absolute：生成绝对定位的元素，相对于值不为 static的第一个父元素进行定位；
+- absolute：生成绝对定位的元素，相对于值不为static的第一个父元素进行定位；
 - fixed：生成绝对定位的元素，相对于浏览器窗口进行定位；
 - relative：生成相对定位的元素，相对于其正常位置进行定位；
 - static：默认值，没有定位，元素出现在正常的流中；
@@ -60,7 +60,7 @@
 9. 行内元素有哪些？块级元素有哪些？空元素有哪些？
 - 行内元素：span img input select strong...；
 - 块级元素：div ul ol dl dt dd h1 h2 h3 h4 p...；
-- 空元素：br hr img input link meta  base area command embed keygen param source track wbr...；
+- 空元素：br hr img input link meta base area command embed keygen param source track wbr...；
 
 10. 行内元素（内联元素）和块级元素的区别？
 - 行内元素（inline）特性：
@@ -84,8 +84,8 @@
 13. BFC块级格式上下文？
 - 触发BFC的条件：
   - 浮动元素(float除了node以外的值)；
-  - 定位元素(position: absolute/ fixed)；
-  - display(值为inline-block/ table-cell/- table-caption/ flex/ inline-flex)；
+  - 定位元素(position: absolute/fixed)；
+  - display(值为inline-block/table-cell/table-caption/flex/inline-flex)；
   - overflow(值为hidden/atuo/srcoll)设置有这些属性的box，都会产生BFC；
 - BFC特性：
   - 内部的盒子在垂直方向上一个接一个地放置；
