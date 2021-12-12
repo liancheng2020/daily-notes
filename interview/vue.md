@@ -118,22 +118,40 @@
   - 当需要一些外部扩展库时需要特殊处理，服务端渲染应用程序也需要处于Node.js的运行环境；
   - 更多的服务端负载；
 
-11. params和query的区别？
+11. 路由的hash和history模式？
+- Vue-Router有两种模式：hash模式和history模式，默认的路由模式是hash模式；
+- hash模式：
+  - 开发中默认的模式，它的URL带着一个#，例如：```http://www.abc.com/#/vue，它的hash值就是#/vue```；
+  - 特点：
+    - hash值会出现在URL里面，但是不会出现在HTTP请求中，对后端完全没有影响，所以改变hash值，不会重新加载页面；
+    - 这种模式的浏览器支持度很好，低版本的IE浏览器也支持这种模式；
+    - hash路由被称为是前端路由，已经成为SPA（单页面应用）的标配；
+- history模式：
+  - history模式的URL中没有#，它使用的是传统的路由分发模式，即用户在输入一个URL时，服务器会接收这个请求，并解析这个URL，然后做出相应的逻辑处理；
+  - 特点：
+    - 当使用history模式时，URL就像这样：```http://abc.com/user/id```，相比hash模式更加好看；
+    - 但是，history模式需要后台配置支持，如果后台没有正确配置，访问时会返回404；
+
+12. params和query的区别？
 - 用法：query要用path来引入，params要用name来引入，接收参数都是类似的，分别是```this.$route.query.name```和```this.$route.params.name```；
 - url地址显示：query更加类似于ajax中get传参，params则类似于post，说的再简单一点，前者在浏览器地址栏中显示参数，后者则不显示；
 - 注意：query刷新不会丢失query里面的数据，params刷新会丢失params里面的数据；
 
-12. created和mounted的区别？
+13. $route和$router的区别？
+- $route：是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数；
+- $router：是“路由实例”对象包括了路由的跳转方法，钩子函数等；
+
+14. created和mounted的区别？
 - created：在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图；
 - mounted：在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作；
 
-13. 一般在哪个生命周期请求异步数据？
+15. 一般在哪个生命周期请求异步数据？
 - 我们可以在钩子函数created、beforeMount、mounted中进行调用，因为在这三个钩子函数中，data已经创建，可以将服务端端返回的数据进行赋值；
 - 推荐在created钩子函数中调用异步请求，因为在created钩子函数中调用异步请求有以下优点：
   - 能更快获取到服务端数据，减少页面加载时间，用户体验更好；
   - SSR不支持beforeMount、mounted钩子函数，放在created中有助于一致性；
 
-14. computed和watch的区别？
+16. computed和watch的区别？
 - 如果一个数据依赖于其他数据，那么把这个数据设计为computed的；
 - 如果你需要在某个数据变化时做一些事情，使用watch来观察这个数据变化；
 - 两者区别：
@@ -141,23 +159,50 @@
   - watch则主要用于观测某个值的变化去完成一段开销较大的复杂业务逻辑；
   - computed和watch都起到监听/依赖一个数据，并进行处理的作用，它们其实都是vue对监听器的实现；
 
-15. vue.extend和vue.component？
+17. vue.extend和vue.component？
 > - extend：是构造一个组件的语法器，然后这个组件你可以作用到Vue.component这个全局注册方法里，还可以在任意vue模板里使用组件，也可以作用到vue实例或者某个组件中的components属性中并在内部使用apple组件；
 > - Vue.component：你可以创建，也可以取组件；
 
-16. $nextTick原理及作用？
+18. Vuex有哪几种属性？
+- 有五种，分别是State、Getter、Mutation、Action、Module；
+  - state => 基本数据(数据源存放地)；
+  - getters => 从基本数据派生出来的数据；
+  - mutations => 提交更改数据的方法，同步；
+  - actions => 像一个装饰器，包裹mutations，使之可以异步；
+  - modules => 模块化Vuex；
+
+19. Vuex和localStorage的区别？
+- 最重要的区别：
+  - vuex存储在内存中；
+  - localstorage则以文件的方式存储在本地，只能存储字符串类型的数据，存储对象需要JSON的stringify和parse方法进行处理，读取内存比读取硬盘速度要快；
+- 应用场景：
+  - Vuex是一个专为Vue.js应用程序开发的状态管理模式，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化，vuex用于组件之间的传值；
+  - localstorage是本地存储，是将数据存储到浏览器的方法，一般是在跨页面传递数据时使用；
+  - Vuex能做到数据的响应式，localstorage不能；
+- 永久性
+  - 刷新页面时vuex存储的值会丢失，localstorage不会；
+
+20. $nextTick原理及作用？
 - Vue的nextTick其本质是对JavaScript执行原理EventLoop的一种应用；
 - nextTick的核心是利用了如Promise、MutationObserver、setImmediate、setTimeout的原生JavaScript方法来模拟对应的微/宏任务的实现，本质是为了利用JavaScript的这些异步回调任务队列来实现Vue框架中自己的异步回调队列；
 - nextTick不仅是Vue内部的异步队列的调用方法，同时也允许开发者在实际项目中使用这个方法来满足实际应用中对DOM更新数据时机的后续逻辑处理；
 
-17. 为什么虚拟DOM会提高性能？
+21. 为什么虚拟DOM会提高性能？
 - 虚拟DOM相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提高性能；
 - 具体实现步骤：
   - 用JavaScript对象结构表示DOM树的结构；然后用这个树构建一个真正的DOM树，插到文档中；
   - 当状态变更的时候，重新构造一棵树的对象树，然后用新的树和旧的树进行对比，记录两棵树差异；
   - 把步骤2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了；
 
-18. Vue3有什么更新？
+22. DIFF算法的原理？
+- 在新老虚拟DOM对比时：
+  - 首先，对比节点本身，判断是否为同一节点，如果不为相同节点，则删除该节点重新创建节点进行替换；
+  - 如果为相同节点，进行patchVnode，判断如何对该节点的子节点进行处理，先判断一方有子节点一方没有子节点的情况(如果新的children没有子节点，将旧的子节点移除)；
+  - 比较如果都有子节点，则进行updateChildren，判断如何对这些新老节点的子节点进行操作（diff核心）；
+  - 匹配时，找到相同的子节点，递归比较子节点；
+- 在diff中，只对同层的子节点进行比较，放弃跨级的节点比较，使得时间复杂从O(n3)降低值O(n)，也就是说，只有当新旧children都为多个子节点时才需要用核心的Diff算法进行同层级比较；
+
+23. Vue3有什么更新？
 - 监测机制的改变：
   - vue3将带来基于代理Proxy的observer实现，提供全语言覆盖的反应性跟踪；
   - 消除了Vue2当中基于Object.defineProperty的实现所存在的很多限制；
@@ -175,3 +220,12 @@
   - 支持自定义渲染器，从而使得weex可以通过自定义渲染器的方式来扩展，而不是直接fork源码来改的方式；
   - 支持Fragment（多个根节点）和Protal（在dom其他部分渲染组建内容）组件，针对一些特殊的场景做了处理；
   - 基于tree shaking优化，提供了更多的内置功能；
+
+24. Vue3.0为什么要用proxy？
+- 在Vue2中，0bject.defineProperty()会改变原始数据，而Proxy是创建对象的虚拟表示，并提供set、get和deleteProperty等处理器，这些处理器可在访问或修改原始对象上的属性时进行拦截，有以下特点∶
+  - 不需用使用Vue.$set或Vue.$delete触发响应式；
+  - 全方位的数组变化检测，消除了Vue2无效的边界情况；
+  - 支持Map，Set，WeakMap和WeakSet；
+  - Proxy实现的响应式原理与Vue2的实现原理相同，实现方式大同小异：
+    - get收集依赖、Set、delete等触发依赖；
+    - 对于集合类型，就是对集合对象的方法做一层包装：原方法执行后执行依赖相关的收集或触发逻辑；
