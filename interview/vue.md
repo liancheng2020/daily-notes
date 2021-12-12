@@ -19,14 +19,14 @@
 - vue的思想是响应式的，也就是基于是数据可变的，通过对每一个属性建立Watcher来监听，当属性变化的时候，响应式的更新对应的虚拟dom；
 - 相同点：
   - 数据驱动页面，提供响应式的视图组件；
-  - 都有virtual DOM,组件化的开发，通过props参数进行父子之间组件传递数据，都实现了webComponents规范；
+  - 都有virtual DOM，组件化的开发，通过props参数进行父子之间组件传递数据，都实现了webComponents规范；
   - 数据流动单向，都支持服务器的渲染SSR；
   - 都有支持native的方法，react有React native，vue有wexx；
 - 不同点：
   - 数据绑定：Vue实现了双向的数据绑定，react数据流动是单向的；
   - 数据渲染：大规模的数据渲染，react更快；
   - 使用场景：React配合Redux架构适合大规模多人协作复杂项目，Vue适合小快的项目；
-  - 开发风格：react推荐做法jsx + inline style把html和css都写在js了，vue是采用webpack + vue-loader单文件组件格式，html, js, css同一个文件；
+  - 开发风格：react推荐做法jsx + inline style把html和css都写在js了，vue是采用webpack + vue-loader单文件组件格式，html，js，css同一个文件；
 
 4. MVVM框架？
 - MVVM：是Model-View-ViewModel的缩写；
@@ -54,9 +54,15 @@
     - 最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化 -> 视图更新；视图交互变化(input) -> 数据model变更的双向绑定效果；
 
 6. Vue组件之间的通信？
-- 父组件向子组件传值：父组件通过props向子组件传递数据；
-- 子组件向父组件传值：子组件通过$emit触发事件，回调给父组件；
-- 兄弟组件之间的通信：可以通过$emit自定义事件来解决；
+- 父子组件间通信：
+  - 子组件通过props属性来接受父组件的数据，通过$emit触发事件来向父组件发送数据；
+  - 通过ref属性给子组件设置一个名字，父组件通过$refs组件名来获得子组件，子组件通过$parent获得父组件，这样也可以实现通信；
+  - 使用provide/inject，在父组件中通过provide提供变量，在子组件中通过inject来将变量注入到组件中，不论子组件有多深，只要调用了inject那么就可以注入provide中的数据；
+- 兄弟组件间通信：
+  - 使用eventBus的方法，它的本质是通过创建一个空的Vue实例来作为消息传递的对象，通信的组件引入这个实例，通信的组件通过在这个实例上监听和触发事件，来实现消息的传递；
+  - 通过$parent/$refs来获取到兄弟组件，也可以进行通信；
+- 任意组件之间：
+  - 使用eventBus，其实就是创建一个事件中心，相当于中转站，可以用它来传递事件和接收事件；
 
 7. v-if和v-show的区别？
 - 手段：
@@ -89,7 +95,45 @@
   - .trim：自动过滤用户输入的首尾空格；
 - 键盘事件的修饰符：.enter、.tab、.delete（补获删除键和退格键）、.up、.down；
 
-9. computed和watch的区别？
+9. 对SPA单页面的理解，它的优缺点分别是什么？
+- SPA（ single-page application ）仅在Web页面初始化时加载相应的HTML、JavaScript和CSS；
+- 一旦页面加载完成，SPA不会因为用户的操作而进行页面的重新加载或跳转；
+- 取而代之的是利用路由机制实现HTML内容的变换，UI与用户的交互，避免页面的重新加载；
+- 优点：
+  - 用户体验好、快，内容的改变不需要重新加载整个页面，避免了不必要的跳转和重复渲染；
+  - 基于上面一点SPA相对对服务器压力小；
+  - 前后端职责分离，架构清晰，前端进行交互逻辑，后端负责数据处理；
+- 缺点：
+  - 初次加载耗时多：为实现单页Web应用功能及显示效果，需要在加载页面的时候将 JavaScript、CSS 统一加载，部分页面按需加载；
+  - 前进后退路由管理：由于单页应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理；
+  - SEO难度较大：由于所有的内容都在一个页面中动态替换显示，所以在SEO上其有着天然的弱势；
+
+10. 对SSR的理解？
+- SSR也就是服务端渲染，也就是将Vue在客户端把标签渲染成HTML的工作放在服务端完成，然后再把html直接返回给客户端；
+- SSR的优势：
+  - 更好的SEO；
+  - 首屏加载速度更快；
+- SSR的缺点：
+  - 开发条件会受到限制，服务器端渲染只支持beforeCreate和created两个钩子；
+  - 当需要一些外部扩展库时需要特殊处理，服务端渲染应用程序也需要处于Node.js的运行环境；
+  - 更多的服务端负载；
+
+11. params和query的区别？
+- 用法：query要用path来引入，params要用name来引入，接收参数都是类似的，分别是```this.$route.query.name```和```this.$route.params.name```；
+- url地址显示：query更加类似于ajax中get传参，params则类似于post，说的再简单一点，前者在浏览器地址栏中显示参数，后者则不显示；
+- 注意：query刷新不会丢失query里面的数据，params刷新会丢失params里面的数据；
+
+12. created和mounted的区别？
+- created：在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图；
+- mounted：在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作；
+
+13. 一般在哪个生命周期请求异步数据？
+- 我们可以在钩子函数created、beforeMount、mounted中进行调用，因为在这三个钩子函数中，data已经创建，可以将服务端端返回的数据进行赋值；
+- 推荐在created钩子函数中调用异步请求，因为在created钩子函数中调用异步请求有以下优点：
+  - 能更快获取到服务端数据，减少页面加载时间，用户体验更好；
+  - SSR不支持beforeMount、mounted钩子函数，放在created中有助于一致性；
+
+14. computed和watch的区别？
 - 如果一个数据依赖于其他数据，那么把这个数据设计为computed的；
 - 如果你需要在某个数据变化时做一些事情，使用watch来观察这个数据变化；
 - 两者区别：
@@ -97,23 +141,23 @@
   - watch则主要用于观测某个值的变化去完成一段开销较大的复杂业务逻辑；
   - computed和watch都起到监听/依赖一个数据，并进行处理的作用，它们其实都是vue对监听器的实现；
 
-10. vue.extend和vue.component？
+15. vue.extend和vue.component？
 > - extend：是构造一个组件的语法器，然后这个组件你可以作用到Vue.component这个全局注册方法里，还可以在任意vue模板里使用组件，也可以作用到vue实例或者某个组件中的components属性中并在内部使用apple组件；
 > - Vue.component：你可以创建，也可以取组件；
 
-11. $nextTick原理及作用？
+16. $nextTick原理及作用？
 - Vue的nextTick其本质是对JavaScript执行原理EventLoop的一种应用；
 - nextTick的核心是利用了如Promise、MutationObserver、setImmediate、setTimeout的原生JavaScript方法来模拟对应的微/宏任务的实现，本质是为了利用JavaScript的这些异步回调任务队列来实现Vue框架中自己的异步回调队列；
 - nextTick不仅是Vue内部的异步队列的调用方法，同时也允许开发者在实际项目中使用这个方法来满足实际应用中对DOM更新数据时机的后续逻辑处理；
 
-12. 为什么虚拟DOM会提高性能？
+17. 为什么虚拟DOM会提高性能？
 - 虚拟DOM相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提高性能；
 - 具体实现步骤：
   - 用JavaScript对象结构表示DOM树的结构；然后用这个树构建一个真正的DOM树，插到文档中；
   - 当状态变更的时候，重新构造一棵树的对象树，然后用新的树和旧的树进行对比，记录两棵树差异；
   - 把步骤2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了；
 
-13. Vue3有什么更新？
+18. Vue3有什么更新？
 - 监测机制的改变：
   - vue3将带来基于代理Proxy的observer实现，提供全语言覆盖的反应性跟踪；
   - 消除了Vue2当中基于Object.defineProperty的实现所存在的很多限制；

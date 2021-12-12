@@ -141,9 +141,9 @@
 - innerHTML可以重绘页面的一部分；
 
 14. Javscript的事件？
-- JavaScript 使我们有能力创建动态页面，事件是可以被 JavaScript 侦测到的行为；
-- 网页中的每个元素都可以产生某些可以触发 JavaScript 函数的事件，比方说，我们可以在用户点击某按钮时产生一个 onClick 事件来触发某个函数，事件在 HTML 页面中定义；
-- 当用户进入或离开页面时就会触发 onload 和 onUnload 事件；
+- JavaScript 使我们有能力创建动态页面，事件是可以被JavaScript侦测到的行为；
+- 网页中的每个元素都可以产生某些可以触发JavaScript函数的事件，比方说，我们可以在用户点击某按钮时产生一个onClick事件来触发某个函数，事件在HTML页面中定义；
+- 当用户进入或离开页面时就会触发onload和onUnload事件；
 - 表单里面使用的onFocus、onBlur、onChange；
 
 15. Javascript绑定事件的方法?
