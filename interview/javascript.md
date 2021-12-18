@@ -140,13 +140,17 @@
 - document.write只能重绘整个页面； 
 - innerHTML可以重绘页面的一部分；
 
-14. Javscript的事件？
+14. setInterval()与setTimeout()的区别？
+- setInterval()：循环调用，将一段代码，每隔一段时间执行一次（循环执行）；
+- setTimeout()：延时调用，将一段代码，等待一段时间之后再执行（只执行一次）；
+
+15. Javscript的事件？
 - JavaScript 使我们有能力创建动态页面，事件是可以被JavaScript侦测到的行为；
 - 网页中的每个元素都可以产生某些可以触发JavaScript函数的事件，比方说，我们可以在用户点击某按钮时产生一个onClick事件来触发某个函数，事件在HTML页面中定义；
 - 当用户进入或离开页面时就会触发onload和onUnload事件；
 - 表单里面使用的onFocus、onBlur、onChange；
 
-15. Javascript绑定事件的方法?
+16. Javascript绑定事件的方法?
 - 嵌入DOM：
 ```
     <button onclick="open()">按钮</button>
@@ -178,12 +182,12 @@
     </script>
 ```
 
-16. 同步和异步的区别?
+17. 同步和异步的区别?
 - 同步强调的是顺序性，谁先谁后，异步则不存在这种顺序性；
 - 同步：浏览器访问服务器请求，用户看得到页面刷新，重新发请求，等请求完，页面刷新，新内容出现，用户看到新内容，进行下一步操作；
 - 异步：浏览器访问服务器请求，用户正常操作，浏览器后端进行请求；等请求完，页面不刷新，新内容也会出现，用户看到新内容；
 
-17. JavaScript异步加载的方式有哪些?
+18. JavaScript异步加载的方式有哪些?
 - 利用setTimout实现异步；
 - 动态创建script标签；
 - 利用script标签提供的async；
