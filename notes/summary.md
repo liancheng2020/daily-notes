@@ -394,4 +394,6 @@
 - setInterval()：循环调用，将一段代码，每隔一段时间执行一次（循环执行）；
 - setTimeout()：延时调用，将一段代码，等待一段时间之后再执行（只执行一次）；
 
-
+47. MVC的思想：
+- 一句话描述就是Controller负责将Model的数据用View显示出来；
+- 换句话说就是在Controller里面把Model的数据赋值给View；
