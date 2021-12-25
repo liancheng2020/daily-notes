@@ -19,8 +19,8 @@
 - 事件修饰符：
   - .stop：阻止事件继续传播；
   - .prevent：阻止标签默认行为；
-  - .capture：使用事件捕获模式,即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理；
-  - .self：只当在 event.target 是当前元素自身时触发处理函数；
+  - .capture：使用事件捕获模式，即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理；
+  - .self：只当在 event.target是当前元素自身时触发处理函数；
   - .once：事件将只会触发一次；
   - .passive：告诉浏览器你不想阻止事件的默认行为；
 - v-model的修饰符：
@@ -30,7 +30,7 @@
 - 键盘事件的修饰符：.enter、.tab、.delete（补获删除键和退格键）、.up、.down；
 
 3. 对SPA单页面的理解，它的优缺点分别是什么？
-- SPA（ single-page application ）仅在Web页面初始化时加载相应的HTML、JavaScript和CSS；
+- SPA（single-page application）仅在Web页面初始化时加载相应的HTML、JavaScript和CSS；
 - 一旦页面加载完成，SPA不会因为用户的操作而进行页面的重新加载或跳转；
 - 取而代之的是利用路由机制实现HTML内容的变换，UI与用户的交互，避免页面的重新加载；
 - 优点：
@@ -152,7 +152,7 @@
 - 数据劫持是通过Object.defineProperty()来劫持对象数据的setter和getter操作，在数据变动时发布消息给订阅者，触发相应的监听回调；
 - 原理：
   - 通过Observer来监听自己的model数据变化，通过Compile来解析编译模板指令，最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化->视图更新；
-  - 在初始化vue实例时，遍历data这个对象，给每一个键值对利用Object.definedProperty对data的键值对新增get和set方法，利用了事件监听DOM的机制，让视图去改变数据；
+  - 在初始化vue实例时，遍历data这个对象，给每一个键值对利用Object.definedProperty()对data的键值对新增get和set方法，利用了事件监听DOM的机制，让视图去改变数据；
 
 - 具体步骤：
   - 第一步：需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter，这样的话给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化；
@@ -240,7 +240,7 @@
   - 支持Map、Set、WeakMap和WeakSet；
 - 模板：
   - 作用域插槽，Vue2.x的机制导致作用域插槽变了，父组件会重新渲染，而Vue3把作用域插槽改成了函数的方式，这样只会影响子组件的重新渲染，提升了渲染的性能；
-   -同时，对于render函数的方面，Vue3也会进行一系列更改来方便习惯直接使用api来生成vdom；
+  - 同时，对于render函数的方面，Vue3也会进行一系列更改来方便习惯直接使用api来生成vdom；
 - 对象式的组件声明方式：
   - Vue2.x中的组件是通过声明的方式传入一系列option，和TypeScript的结合需要通过一些装饰器的方式来做，虽然能实现功能，但是比较麻烦；
   - Vue3修改了组件的声明方式，改成了类式的写法，这样使得和TypeScript的结合变得很容易；
