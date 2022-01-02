@@ -7,7 +7,7 @@
     - 栈：原始数据类型（Undefined、Null、Boolean、Number、String）；
     - 堆：引用数据类型（对象、数组和函数）；
 
-2. 数据检测的方式有哪些？
+2. 数据类型检测的方式有哪些？
 - typeof：其中数组、对象、null都会被判断为object；
 ```
     console.log(typeof 2)              // number
@@ -113,7 +113,7 @@
 
 9. JavaScript的原型、原型链有什么特点？
 - 每个对象都会在其内部初始化一个属性，就是prototype（原型）；
-- 当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是这样一直找下去，也就是我们所说的原型链的概念。
+- 当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的prototype（原型对象）里找这个属性，这个prototype又会有自己的prototype，于是这样一直找下去，也就是我们所说的原型链的概念。
 - 特点：
   - JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有属于自己的原型副本；
   - 当我们修改原型时，与之相关的对象也会继承这一改变；
@@ -192,3 +192,31 @@
 - 动态创建script标签；
 - 利用script标签提供的async；
 - 使用Promise对象；
+
+18. Proxy的了解？
+- Vue3.0要使用Proxy替换原本的API原因在于：
+    - Proxy无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，但是Proxy可以完美监听到任何方式的数据改变，唯一缺陷就是浏览器的兼容性不好；
+
+19. 类数组如何转换为数组？
+- 通过call调用数组的slice()方法来实现转换；
+- 通过call调用数组的splice()方法来实现转换；
+- 通过apply调用数组的concat()方法来实现转换；
+```
+    Array.prototype.slice.call(arrayLike)
+    Array.prototype.splice.call(arrayLike, 0)
+    Array.prototype.concat.apply([], arrayLike)
+```
+- 使用Array.from()方法将类数组转化成数组；
+- 使用展开运算符（...）将类数组转化成数组；
+
+20. Promise的理解？
+- Promise对象是异步编程的一种解决方案，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）；
+- Promise是一个构造函数，接收一个函数作为参数，返回一个Promise实例；
+- Promise实例有三种状态，分别是pending、resolved和rejected，分别代表了进行中、已成功和已失败；
+
+21. async和await的理解？
+- async/await其实是Generator的语法糖；
+- async函数返回的是一个Promise对象；
+- await等待的是一个表达式，这个表达式的计算结果是Promise对象或者其它值；
+
+
