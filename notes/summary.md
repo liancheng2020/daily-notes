@@ -397,3 +397,11 @@
 47. MVC的思想：
 - 一句话描述就是Controller负责将Model的数据用View显示出来；
 - 换句话说就是在Controller里面把Model的数据赋值给View；
+
+48. TypeScript与JavaScript的区别：
+- TypeScript是JavaScript的超集，扩展了JavaScript的语法;
+- TypeScript可处理已有的JavaScript代码，并只对其中的TypeScript代码进行编译；
+- TypeScript文件的后缀名.ts（.ts，.tsx，.dts），JavaScript文件是.js；
+- 在编写typeScript 的文件的时候就会自动编译成js文件；
+
+
