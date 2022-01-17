@@ -1,11 +1,11 @@
 1. JavaScript有哪些数据类型？它们有哪些区别？
 - JavaScript共有八种数据类型，分别是Undefined、Null、Boolean、Number、String、Object、Symbol、BigInt；
 - 其中Symbol和BigInt是ES6中新增的数据类型：
-    - Symbol代表创建后独一无二且不可变的数据类型，它主要是为了解决可能出现的全局变量冲突的问题；
-    - BigInt是一种数字类型的数据，它可以表示任意精度格式的整数，使用BigInt可以安全地存储和操作大整数，即使这个数已经超出了Number能够表示的安全整数范围；
+  - Symbol代表创建后独一无二且不可变的数据类型，它主要是为了解决可能出现的全局变量冲突的问题；
+  - BigInt是一种数字类型的数据，它可以表示任意精度格式的整数，使用BigInt可以安全地存储和操作大整数，即使这个数已经超出了Number能够表示的安全整数范围；
 - 这些数据可以分为原始数据类型和引用数据类型：
-    - 栈：原始数据类型（Undefined、Null、Boolean、Number、String）；
-    - 堆：引用数据类型（对象、数组和函数）；
+  - 栈：原始数据类型（Undefined、Null、Boolean、Number、String）；
+  - 堆：引用数据类型（对象、数组和函数）；
 
 2. 数据类型检测的方式有哪些？
 - typeof：其中数组、对象、null都会被判断为object；
@@ -21,8 +21,8 @@
 ``` 
 
 - instanceof：可以正确判断对象的类型，其内部运行机制是****判断在其原型链中能否找到该类型的原型；
-    - instanceof只能正确判断引用数据类型，而不能判断基本数据类型；
-    - instanceof运算符可以用来测试一个对象在其原型链中是否存在一个构造函数的prototype属性；
+  - instanceof只能正确判断引用数据类型，而不能判断基本数据类型； 
+  - instanceof运算符可以用来测试一个对象在其原型链中是否存在一个构造函数的prototype属性；
 ```
     console.log(2 instanceof Number)                // false
     console.log(true instanceof Boolean)            // false 
@@ -34,7 +34,7 @@
 ```
 
 - constructor：有两个作用，一是判断数据的类型，二是对象实例通过constructor对象访问它的构造函数；
-    - 如果创建一个对象来改变它的原型，constructor就不能用来判断数据类型了；
+  - 如果创建一个对象来改变它的原型，constructor就不能用来判断数据类型了；
 ```
     function Fn(){}
     Fn.prototype = new Array()
@@ -199,7 +199,7 @@
 
 18. Proxy的了解？
 - Vue3.0要使用Proxy替换原本的API原因在于：
-    - Proxy无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，但是Proxy可以完美监听到任何方式的数据改变，唯一缺陷就是浏览器的兼容性不好；
+  - Proxy无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，但是Proxy可以完美监听到任何方式的数据改变，唯一缺陷就是浏览器的兼容性不好；
 
 19. 类数组如何转换为数组？
 - 通过call调用数组的slice()方法来实现转换；
@@ -222,5 +222,3 @@
 - async/await其实是Generator的语法糖；
 - async函数返回的是一个Promise对象；
 - await等待的是一个表达式，这个表达式的计算结果是Promise对象或者其它值；
-
-
