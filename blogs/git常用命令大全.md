@@ -41,6 +41,12 @@
   git push origin --delete dev  // 删除远程dev分支
 ```
 
+- git 从tag拉取分支
+
+```
+  git branch test 1.0  // 从1.0tag上拉取新分支test
+```
+
 - commit 修改、撤销
 
 ```
