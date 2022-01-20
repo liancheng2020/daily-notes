@@ -94,7 +94,7 @@
 ```
   @Watch('saveReq.cycle')
   onChange(val: string, oldVal: string) {
-    console.log(val, newVal)   // 监听对象saveReq中的cycle字段的原值、现值 
+    console.log(val, newVal)  // 监听对象saveReq中的cycle字段的原值、现值 
   }
 
   @Watch('value', { immediate: true, deep: true })
@@ -132,7 +132,7 @@
 ```
   const str1 = {1: 'aa', 2: 'bb', 3: 'cc'}
   const str2 = {1: 'abc', 2: 'bbc', 3: 'aa', 4: 'bb'}
-  const str3 = {...str1, ...str2}   // {1: 'abc', 2 'bbc' 3: 'aa', 4: 'bb'}
+  const str3 = {...str1, ...str2}   // {1: 'abc', 2 'bbc', 3: 'aa', 4: 'bb'}
   const str4 = {...str2, ...str1}   // {1: "aa", 2: "bb", 3: "cc", 4: "bb"}
 ```
 

@@ -35,10 +35,10 @@
     git branch --set-upstream-to=origin/test // 将本地test分支与远程test分支建立关联
 ```
 
-#### git 从tag拉取分支
+#### git 基于tag拉取新分支
 
 ```
-    git branch test 1.0  // 从1.0tag上拉取新分支test
+    git branch test 1.0  // 基于1.0（tag）拉取新分支test
 ```
 
 #### git 修改commit

@@ -89,7 +89,7 @@
     let arr = [12, 45, 45, 32, 4, 8, 12, 4, 18]
     arr = arr.filter((item, index) => arr.indexOf(item) === index)
 
-    console.log(arr) // 输出输出[12, 45, 32, 4, 8, 18]
+    console.log(arr)  // 输出输出[12, 45, 32, 4, 8, 18]
 ```
 
 #### 对象数组去重
