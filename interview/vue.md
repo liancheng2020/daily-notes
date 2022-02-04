@@ -70,6 +70,11 @@
 - 在视图更新时，先触发actions，actions再触发mutation；
 - mutation的参数是state，它包含store中的数据，store的参数是context，它是state的父级，包含state、getters；
 
+- 简单概述：
+  - action中处理异步，mutation不可以；
+  - mutation作原子操作；
+  - action可以整合多个mutation；
+
 8. Vuex和localStorage的区别？
 - 最重要的区别：
   - vuex存储在内存中；
@@ -205,24 +210,29 @@
   - watch则主要用于观测某个值的变化去完成一段开销较大的复杂业务逻辑；
   - computed和watch都起到监听/依赖一个数据，并进行处理的作用，它们其实都是vue对监听器的实现；
 
-23. $nextTick原理及作用？
+23. Vue如何监听数组变化？
+- Object.defineProperty()不能监听数组变化；
+- 重新定义原型，重写push、pop等方法，实现监听；
+- Proxy可以原生支持监听数组变化；
+
+24. $nextTick原理及作用？
 - Vue的nextTick其本质是对JavaScript执行原理EventLoop的一种应用；
 - nextTick的核心是利用了如Promise、MutationObserver、setImmediate、setTimeout的原生JavaScript方法来模拟对应的微/宏任务的实现，本质是为了利用JavaScript的这些异步回调任务队列来实现Vue框架中自己的异步回调队列；
 - nextTick不仅是Vue内部的异步队列的调用方法，同时也允许开发者在实际项目中使用这个方法来满足实际应用中对DOM更新数据时机的后续逻辑处理；
 
-24. 对虚拟DOM的理解？
+25. 对虚拟DOM的理解？
 - 从本质上来说，Virtual Dom是一个JavaScript对象，通过对象的方式来表示DOM结构；
 - 将页面的状态抽象为JS对象的形式，配合不同的渲染工具，使跨平台渲染成为可能；
 - 通过事务处理机制，将多次DOM修改的结果一次性的更新到页面上，从而有效的减少页面渲染的次数，减少修改DOM的重绘重排次数，提高渲染性能；
 
-25. 为什么虚拟DOM会提高性能？
+26. 为什么虚拟DOM会提高性能？
 - 虚拟DOM相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提高性能；
 - 具体实现步骤：
   - 用JavaScript对象结构表示DOM树的结构；然后用这个树构建一个真正的DOM树，插到文档中；
   - 当状态变更的时候，重新构造一棵树的对象树，然后用新的树和旧的树进行对比，记录两棵树差异；
   - 把步骤2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了；
 
-26. DIFF算法的原理？
+27. DIFF算法的原理？
 - 在新老虚拟DOM对比时：
   - 首先，对比节点本身，判断是否为同一节点，如果不为相同节点，则删除该节点重新创建节点进行替换；
   - 如果为相同节点，进行patchVnode，判断如何对该节点的子节点进行处理，先判断一方有子节点一方没有子节点的情况(如果新的children没有子节点，将旧的子节点移除)；
@@ -230,7 +240,7 @@
   - 匹配时，找到相同的子节点，递归比较子节点；
 - 在diff中，只对同层的子节点进行比较，放弃跨级的节点比较，使得时间复杂从O(n3)降低值O(n)，也就是说，只有当新旧children都为多个子节点时才需要用核心的Diff算法进行同层级比较；
 
-27. Vue3有什么更新？
+28. Vue3有什么更新？
 - 监测机制的改变：
   - vue3将带来基于代理Proxy的observer实现，提供全语言覆盖的反应性跟踪；
   - 消除了Vue2当中基于Object.defineProperty的实现所存在的很多限制；
@@ -249,7 +259,7 @@
   - 支持Fragment（多个根节点）和Protal（在dom其他部分渲染组建内容）组件，针对一些特殊的场景做了处理；
   - 基于tree shaking优化，提供了更多的内置功能；
 
-28. Vue3为什么要用proxy？
+29. Vue3为什么要用proxy？
 - 在Vue2中，0bject.defineProperty()会改变原始数据，而Proxy是创建对象的虚拟表示，并提供set、get和deleteProperty等处理器，这些处理器可在访问或修改原始对象上的属性时进行拦截，有以下特点∶
   - 不需用使用Vue.$set或Vue.$delete触发响应式；
   - 全方位的数组变化检测，消除了Vue2无效的边界情况；
@@ -258,7 +268,7 @@
     - get收集依赖、Set、delete等触发依赖；
     - 对于集合类型，就是对集合对象的方法做一层包装：原方法执行后执行依赖相关的收集或触发逻辑；
 
-29. Vue的性能优化？
+30. Vue的性能优化？
 - 代码层面的优化：
   - v-if和v-show区分使用场景；
   - computed和watch区分使用场景；
