@@ -398,10 +398,22 @@
 - 一句话描述就是Controller负责将Model的数据用View显示出来；
 - 换句话说就是在Controller里面把Model的数据赋值给View；
 
-48. TypeScript与JavaScript的区别：
+48. TypeScript与JavaScript的区别？
 - TypeScript是JavaScript的超集，扩展了JavaScript的语法;
 - TypeScript可处理已有的JavaScript代码，并只对其中的TypeScript代码进行编译；
 - TypeScript文件的后缀名.ts（.ts，.tsx，.dts），JavaScript文件是.js；
 - 在编写typeScript 的文件的时候就会自动编译成js文件；
 
+49. assets和static的区别？
+- assets在运行 npm run build 时，会跟着打包上传，即压缩体积，代码格式化；
+- static中放置的静态资源文件不会走打包压缩流程，会直接上传至服务器；
+
+50. 
+```
+  const s = '  abc  '
+
+  s.trim()        // 'abc'
+  s.trimStart()   // 'abc  '
+  s.trimEnd()     // '  abc'
+```
 
