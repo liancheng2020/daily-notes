@@ -345,7 +345,7 @@
   const arr = [12, 30, 90]
 
   Object.prototype.toString.call(arr)   // 输出'[object Array]'
-  Object.prototype.toString.call(arr).slice(8,-1) === 'Array'  // true
+  Object.prototype.toString.call(arr).slice(8, -1) === 'Array'  // true
 
   arr.__proto__ === Array.prototype  // true
 
@@ -402,7 +402,7 @@
 - TypeScript是JavaScript的超集，扩展了JavaScript的语法;
 - TypeScript可处理已有的JavaScript代码，并只对其中的TypeScript代码进行编译；
 - TypeScript文件的后缀名.ts（.ts，.tsx，.dts），JavaScript文件是.js；
-- 在编写typeScript 的文件的时候就会自动编译成js文件；
+- 在编写typeScript的文件的时候就会自动编译成js文件；
 
 49. assets和static的区别？
 - assets在运行 npm run build 时，会跟着打包上传，即压缩体积，代码格式化；
@@ -417,3 +417,61 @@
   s.trimEnd()     // '  abc'
 ```
 
+51. Proxy相比Object.defineProperty()的优势：
+- 可以监听属性的增删操作；
+- 可以监听数组某个索引值的变化以及数组长度的改变；
+
+52. 组件通信相关：
+- $attrs：子组件获取父组件上所有没定义prop的属性；
+- $listeners：子组件获取父子组件上定义的方法；
+
+- provide：提供父组件上定义的属性或方法；
+- inject：子组件获取父组件上定义的属性和方法；
+
+- $parent：给子组件使用，获取父组件上定义的属性和方法；
+- $children：给父组件使用，获取子组件上定义的属性和方法；
+
+53. $eventBus：
+- 声明一个全局Vue实例变量 EventBus，把所有的通信数据，事件监听都存储到这个变量上；
+- 类似于 Vuex，但这种方式只适用于极小的项目；
+- 原理就是利用 on 和 emit 并实例化一个全局 vue 实现数据共享；
+```
+  // 在 main.js
+  Vue.prototype.$eventBus = new Vue()
+
+  // 传值组件
+  this.$eventBus.$emit('eventTarget', '这是eventTarget传过来的值')
+
+  // 接收组件
+  this.$eventBus.$on("eventTarget", v => {
+    console.log('eventTarget', v)  // 这是eventTarget传过来的值
+  })
+```
+
+54. Micro-Task 与 Macro-Task：
+- 事件循环中的异步队列有两种：macro（宏任务）队列和 micro（微任务）队列；
+- 宏任务队列可以有多个，微任务队列只有一个；
+- 常见的 macro-task 比如：setTimeout、setInterval、setImmediate、script（整体代码）、I/O 操作、UI 渲染等；
+- 常见的 micro-task 比如：process.nextTick、new Promise().then(回调)、MutationObserver(html5 新特性) 等；
+
+55. this 相关：
+- this 永远指向最后调用它的那个对象；
+- 改变 this 的指向：
+  - 使用 ES6 的箭头函数；
+  - 在函数内部使用 _this = this；
+  - 使用 apply、call、bind；
+  - new 实例化一个对象；
+
+```
+  var a = {
+    name: "Cherry",
+    fn: function (a, b) {
+      console.log( a + b)
+    }
+  }
+
+  var b = a.fn;
+  b.call(a, 1, 2)
+  b.apply(a, [1, 2])
+  b.bind(a, 1, 2)()       
+```
