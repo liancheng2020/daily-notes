@@ -40,7 +40,6 @@
     return result                  // 返回函数执行结果
   }
 
-
   // apply 原理实现
   Function.prototype.myApply = function(thisArg, args) {
     const fn = Symbol('fn')        // 声明一个独有的Symbol属性, 防止fn覆盖已有属性
@@ -164,4 +163,3 @@
     }
   }
 ```
-

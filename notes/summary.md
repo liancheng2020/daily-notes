@@ -475,3 +475,39 @@
   b.apply(a, [1, 2])
   b.bind(a, 1, 2)()       
 ```
+
+56. 对websocket的理解：
+- Websocket 是一种双向通信协议，在建立连接后，websocket 服务器和浏览器都能主动向对方发送或者接收数据；
+- websocket 需要类似于 tcp 的客户端和服务器通过握手连接，连接成功后才能互相通信；
+
+57. webpack中 loaders 和 plugin 的区别？
+- loaders：是文件加载器，能够加载资源文件，并对这些文件进行处理，例如编译，压缩等，最终一起打包到指定文件中；
+- plugin：在 webpack 运行的生命周期会有许多事件，plugin 可以监听这些事件；
+- 区别：
+  - 加载器是用来加载文件的，webpack 本身只能加载 js 文件(内置 babel-loader)，加载其他文件就需要安装别的 loader，比如： css-loader、file-loader；
+  - Plugin 是扩展 webpack 功能的，通过 plugin，webpack 可以实现 loader 不能完成的复杂功能；
+
+58. webpack 有哪些常见的 loader?
+- file-loader：把文件输出到一个文件夹中，在代码中通过相对url去引用输出到文件；
+- image-loader：加载并且压缩图片文件；
+- babel-loader：把 ES6 转换成 ES5；
+- css-loader：加载 CSS，⽀持模块化、压缩、⽂件导⼊等特性；
+- style-loader：把 CSS 代码注⼊到 JavaScript 中，通过 DOM 操作去加载 CSS；
+- eslint-loader：通过 eslint 检查 JavaScript 代码；
+
+59. webpack 常见的 plugin 有哪些？
+- ProvidePlugin：自动加载模块，代替require和import；
+- html-webpack-plugin：可以根据模板自动生成html代码，并自动引用css和js文件；
+- extract-text-webpack-plugin：将js文件中引用的样式单独抽离成css文件；
+- HotModuleReplacementPlugin：热更新；
+- webpack-bundle-analyzer 一个webpack的bundle文件分析工具，将bundle文件以可交互缩放的treemap的形式展示；
+- compression-webpack-plugin：生产环境可采用gzip压缩JS和CSS；
+- clean-wenpack-plugin：清理每次打包下没有使用的文件；
+- webpack-bundle-analyzer：可视化Webpack输出文件的体积（业务组件、依赖第三方模块）；
+
+60. webpack 的热更新原理？
+- 其实是自己开启了express应用，添加了对webpack编译的监听，添加了和浏览器的websocket长连接；
+- 当文件变化触发webpack进行编译并完成后，会通过sokcet消息告诉浏览器准备刷新；
+- 而为了减少刷新的代价，就是不用刷新网页，而是刷新某个模块；
+- webpack-dev-server可以支持热更新，通过生成文件的hash值来比对需要更新的模块，浏览器再进行热替换；
+
