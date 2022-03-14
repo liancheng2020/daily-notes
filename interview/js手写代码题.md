@@ -64,31 +64,32 @@
 4. 防抖/节流 函数实现：
 
 ```
-  // 防抖（默认300ms）
-  function debounce(fn, delay = 300) {
-    let timer;
-    return function () {
-      const args = arguments;
-      if (timer) {
-        clearTimeout(timer);
-      }
-      timer = setTimeout(() => {
-        fn.apply(this, args);
-      }, delay);
-    };
+  // 防抖
+  function debounce(fn, delay) {
+    let timeout = null
+    return function() {
+      let context = this
+      let args = arguments
+      if (timeout) clearTimeout(timeout)
+      timeout = setTimeout(() => {
+        fn.apply(context, args)
+      }, delay)
+    }
   }
 
-  // 节流（设置一个标志）
+  // 节流
   function throttle(fn, delay) {
-    let flag = true;
-    return () => {
-      if (!flag) return;
-        flag = false;
-        timer = setTimeout(() => {
-        fn();
-        flag = true;
-      }, delay);
-    };
+    let timeout = null
+    return function() {
+      let context = this
+      let args = arguments
+      if (!timeout) {
+        timeout = setTimeout(() => {
+          timeout  = null
+          fn.apply(context, args)
+        }, delay)
+      }
+    }
   }
 ```
 
@@ -125,7 +126,7 @@
 ```
   function myPromise(constructor){
     let self = this;
-    self.status ="pending";    // 定义状态改变前的初始状态
+    self.status = "pending";    // 定义状态改变前的初始状态
     self.value = undefined;     // 定义状态为resolved的时候的状态
     self.reason = undefined;    // 定义状态为rejected的时候的状态
     function resolve(value) {

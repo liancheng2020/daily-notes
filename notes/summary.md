@@ -423,7 +423,7 @@
 
 52. 组件通信相关：
 - $attrs：子组件获取父组件上所有没定义prop的属性；
-- $listeners：子组件获取父子组件上定义的方法；
+- $listeners：子组件获取父组件上定义的方法；
 
 - provide：提供父组件上定义的属性或方法；
 - inject：子组件获取父组件上定义的属性和方法；
@@ -466,17 +466,17 @@
   var a = {
     name: "Cherry",
     fn: function (a, b) {
-      console.log( a + b)
+      console.log(a + b)
     }
   }
 
   var b = a.fn;
   b.call(a, 1, 2)
   b.apply(a, [1, 2])
-  b.bind(a, 1, 2)()       
+  b.bind(a, 1, 2)()  
 ```
 
-56. 对websocket的理解：
+56. 对 websocket 的理解：
 - Websocket 是一种双向通信协议，在建立连接后，websocket 服务器和浏览器都能主动向对方发送或者接收数据；
 - websocket 需要类似于 tcp 的客户端和服务器通过握手连接，连接成功后才能互相通信；
 
@@ -500,14 +500,38 @@
 - html-webpack-plugin：可以根据模板自动生成html代码，并自动引用css和js文件；
 - extract-text-webpack-plugin：将js文件中引用的样式单独抽离成css文件；
 - HotModuleReplacementPlugin：热更新；
-- webpack-bundle-analyzer 一个webpack的bundle文件分析工具，将bundle文件以可交互缩放的treemap的形式展示；
+- webpack-bundle-analyzer：一个webpack的bundle文件分析工具，将bundle文件以可交互缩放的treemap的形式展示；
 - compression-webpack-plugin：生产环境可采用gzip压缩JS和CSS；
 - clean-wenpack-plugin：清理每次打包下没有使用的文件；
 - webpack-bundle-analyzer：可视化Webpack输出文件的体积（业务组件、依赖第三方模块）；
 
 60. webpack 的热更新原理？
 - 其实是自己开启了express应用，添加了对webpack编译的监听，添加了和浏览器的websocket长连接；
-- 当文件变化触发webpack进行编译并完成后，会通过sokcet消息告诉浏览器准备刷新；
+- 当文件变化触发webpack进行编译并完成后，会通过socket消息告诉浏览器准备刷新；
 - 而为了减少刷新的代价，就是不用刷新网页，而是刷新某个模块；
 - webpack-dev-server可以支持热更新，通过生成文件的hash值来比对需要更新的模块，浏览器再进行热替换；
+
+61. typescript 泛型？
+- 定义函数，接口或者类的时候，不预先定义好具体的类型，而在使用的时候在指定类型的一种特性；
+
+62. vue2 与 vue3 监测的不同？
+- vue2中采用 defineProperty来劫持整个对象，然后进行深度遍历所有属性，给每个属性添加getter和setter，实现响应式；
+- vue3采用proxy重写了响应式系统，因为proxy可以对整个对象进行监听，所以不需要深度遍历；
+  - 可以监听动态属性的添加；
+  - 可以监听到数组的索引和数组length属性；
+  - 可以监听删除属性；
+
+63. Vue-Router 的懒加载如何实现?
+- 使用箭头函数+import动态加载；
+- 使用箭头函数+require动态加载；
+- 使用webpack的require.ensure技术，也可以实现按需加载，这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件；
+
+64. Vue-router 导航守卫有哪些？
+- 全局前置/钩子：beforeEach、beforeResolve、afterEach；
+- 路由独享的守卫：beforeEnter；
+- 组件内的守卫：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave；
+
+
+
+
 

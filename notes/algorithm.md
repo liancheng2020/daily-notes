@@ -250,7 +250,7 @@
         // 根据 object 的类型判断是新建一个数组还是对象
         let newObject = Array.isArray(object) ? [] : {};
 
-        // 遍历 object，并且判断是 object 的属性才拷贝
+        // 遍历 object，并且判断是 object 的属性才拷贝，干掉继承属性
         for (let key in object) {
             if (object.hasOwnProperty(key)) {
                 newObject[key] = object[key];
@@ -290,7 +290,7 @@
 
 
     // bind原理实现
-    Function.prototype.myBind = function (thisArg, ...args) {
+    Function.prototype.myBind = function(thisArg, ...args) {
         var self = this
 
         // new优先级
@@ -337,31 +337,31 @@
 #### 防抖/节流
 
 ```
-    // 防抖（默认300ms）
-    function debounce(fn, delay = 300) {
-        let timer;
-        return function () {
-            const args = arguments;
-            if (timer) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(() => {
-                fn.apply(this, args);  // 改变this指向为调用debounce所指的对象
-            }, delay);
-        };
+    // 防抖
+    function debounce(func, wait) {
+        let timeout = null
+        return function() {
+            let context = this
+            let args = arguments
+            if (timeout) clearTimeout(timeout)
+            timeout = setTimeout(() => {
+                func.apply(context, args)
+            }, wait)
+        }
     }
 
-
-    // 节流（设置一个标志）
-    function throttle(fn, delay) {
-        let flag = true;
-        return () => {
-            if (!flag) return;
-            flag = false;
-            timer = setTimeout(() => {
-                fn();
-                flag = true;
-            }, delay);
-        };
+    // 节流
+    function throttle(func, wait) {
+        let timeout = null
+        return function() {
+            let context = this
+            let args = arguments
+            if (!timeout) {
+                timeout = setTimeout(() => {
+                    timeout = null
+                    func.apply(context, args)
+                }, wait)
+            }
+        }
     }
 ```

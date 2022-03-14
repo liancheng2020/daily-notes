@@ -58,26 +58,26 @@
     console.log(a.call(null))           // [object Null]
 ```
 
-3. 判断数组的方式有哪些？
+3. 判断数组arr的方式有哪些？
 - 通过Object.prototype.toString.call()做判断：
 ```
-    Object.prototype.toString.call(obj).slice(8,-1) === 'Array'
+    Object.prototype.toString.call(arr).slice(8,-1) === 'Array'
 ```
 - 通过原型链做判断：
 ```
-    obj.__proto__ === Array.prototype
+    arr.__proto__ === Array.prototype
 ```
 - 通过ES6的Array.isArray()做判断：
 ```
-    Array.isArrray(obj)
+    Array.isArrray(arr)
 ```
 - 通过instanceof做判断：
 ```
-    obj instanceof Array
+    arr instanceof Array
 ```
 - 通过Array.prototype.isPrototypeOf()做判断：
 ```
-    Array.prototype.isPrototypeOf(obj)
+    Array.prototype.isPrototypeOf(arr)
 ```
 
 4. undefined与null之间的区别？
