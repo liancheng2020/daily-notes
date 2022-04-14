@@ -228,7 +228,7 @@
 ```
   const str = 'abc'
   str.repeat(3)    // 'abcabcabc'
-  str.repeat(1.8)  // 'abcabc'
+  str.repeat(1.8)  // 'abc'
   str.repeat(2.5)  // 'abcabc'
   str.repeat(-1)   // RangeError报错
 ```

@@ -19,7 +19,7 @@
 
 - find()、findIndex()
   - find(): 返回数组中符合条件的第一个元素的值，否则返回 undefined；
-  - findIndex(): 返回数组中满足符合条件的第一个元素的索引，否则返回 -；
+  - findIndex(): 返回数组中满足符合条件的第一个元素的索引，否则返回 -1；
   - 两者都不会改变原数组，对空数组不执行；
 
 - reduce()、reduceRight()
