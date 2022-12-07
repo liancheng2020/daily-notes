@@ -31,3 +31,20 @@
 -   async 属性：立即请求文件，但不阻塞渲染引擎，而是文件加载完毕后阻塞渲染引擎并立即执行文件内容；
 -   defer 属性：立即请求文件，但不阻塞渲染引擎，等到解析完 HTML 之后再执行文件内容；
 -   HTML5 标准 type 属性：对应值为“module”，让浏览器按照 ECMA Script 6 标准将文件当作模块进行解析，默认阻塞效果同 defer，也可以配合 async 在请求完成后立即执行；
+
+7. vite
+
+-   利用浏览器现在已经支持 es6 的 import，碰见 import 会发送一个 http 请求去加载文件；
+-   vite 拦截这些请求，做一些预编译，省去了 webpack 冗长的打包时间，提升开发体验；
+
+8. vue3 性能优势
+
+-   vue2 初始化，所有的数据都要递归走 defineProperty 包；
+-   vue3 用 proxy+动态的决定返回什么，做了拦截，初始工作量减少，组件实例化的提升还是很明显；
+
+9. vue3 composition 的来源和细节
+
+-   为了解决 option api 的 this 黑盒问题，引入了 composition api
+-   为了解决 reactivity 操作简单数据结构的命名空间问题，引入新的 api ref
+-   为了解决 composition 的统一 return 问题，引入了 script setup
+-   为了解决 ref 的.value 副作用，引入了 ref sugar
