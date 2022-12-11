@@ -85,6 +85,7 @@
     -   thread-loader：多进程打包 JS 和 CSS
 
 -   Plugin：用于 bundle 文件的优化，资源管理和环境变量注入，作用于整个构建过程
+
     -   CommonsChunkPlugin：将 chunks 相同的模块代码提取成公共 js
     -   CleanWebpackPlugin：清理构建目录
     -   ExtractTextWebpackPlugin：将 CSS 从 bundle 文件里提取成一个独立的 CSS 文件
@@ -92,3 +93,28 @@
     -   HtmlWebpackPlugin：创建 html 文件去承载输出的 bundle
     -   UglifyjsWebpackPlugin：压缩 js
     -   ZipWebpackPlugin：将打包出的资源生成一个 zip 包
+
+14. SSR
+
+    -   服务端渲染 (SSR) 的核⼼是减少请求；
+    -   SSR 的优势：减少白屏时间，对于 SEO 友好；
+
+15. reactive() 的局限性
+
+    -   仅对对象类型有效（对象、数组和 Map、Set 这样的集合类型），而对 string、number 和 boolean 这样的 原始类型 无效；
+    -   因为 Vue 的响应式系统是通过属性访问进行追踪的，因此我们必须始终保持对该响应式对象的相同引用；
+
+16. vue2 Mixin 缺点
+
+-   不清晰的数据来源：当使用了多个 mixin 时，实例上的数据属性来自哪个 mixin 变得不清晰，这使追溯实现和理解组件行为变得困难；
+-   命名空间冲突：多个来自不同作者的 mixin 可能会注册相同的属性名，造成命名冲突；
+-   隐式的跨 mixin 交流：多个 mixin 需要依赖共享的属性名来进行相互作用，这使得它们隐性地耦合在一起；
+
+17. vue3 生命周期钩子：
+
+-   onMounted()：在组件挂载完成后执行；
+-   onUpdated()：在组件因为响应式状态变更而更新其 DOM 树之后调用；
+-   onUnmounted()：组件实例被卸载之后调用；
+-   onBeforeMount()：在组件被挂载之前被调用；
+-   onBeforeUpdate()：在组件即将因为响应式状态变更而更新其 DOM 树之前调用；
+-   onBeforeUnmount()：在组件实例被卸载之前调用；
