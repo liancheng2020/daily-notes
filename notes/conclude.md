@@ -13,6 +13,8 @@
 
 -   通过 call、apply、bind、new 对 this 绑定的情况称为显式绑定；
 -   根据调用关系确定的 this 指向称为隐式绑定；
+-   call、apply 的显式绑定一般来说优先级更高；
+-   new 绑定的优先级比显式 bind 绑定更高；
 
 4. img 标签
 
@@ -118,3 +120,5 @@
 -   onBeforeMount()：在组件被挂载之前被调用；
 -   onBeforeUpdate()：在组件即将因为响应式状态变更而更新其 DOM 树之前调用；
 -   onBeforeUnmount()：在组件实例被卸载之前调用；
+
+18.
