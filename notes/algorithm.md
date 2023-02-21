@@ -37,10 +37,11 @@
 ```
 
 #### 快速排序
+
 ```
     let quickSort = function(arr) {
-        if (arr.length <= 1) { 
-            return arr 
+        if (arr.length <= 1) {
+            return arr
         }
         let pivotIndex = Math.floor(arr.length / 2)
         let pivot = arr.splice(pivotIndex, 1)[0]
@@ -57,6 +58,7 @@
 ```
 
 #### 插入排序
+
 ```
     let insertSort = function(arr) {
         let i, j, temp
@@ -113,16 +115,16 @@
     console.log(arr2)  // 输出[{ id: 1001, name: '名称1001'}, { id: 1002, name: '名称1002'}]
 ```
 
-#### ES6 new Set方法数组去重
+#### ES6 new Set 方法数组去重
 
 ```
     const arr1 = [10, 20, 30, 10, 12, 20]
     const arr2 = [...new Set(arr1)]
-    
+
     console.log(arr2)  // 输出[10, 20, 30, 12]
 ```
 
-#### reduce方法-数组去重
+#### reduce 方法-数组去重
 
 ```
     const arr1 = [10, 20, 30, 10, 12, 20]
@@ -151,10 +153,10 @@
 
 #### 数组扁平化-flat()方法
 
-- 不传参数时，默认“拉平”一层；
-- 传入一个整数参数，整数即“拉平”的层数；
-- 数组作为参数时，无论多少层嵌套，都会转为一维数组；
-- 传入 <=0 的整数将返回原数组，不“拉平”；
+-   不传参数时，默认“拉平”一层；
+-   传入一个整数参数，整数即“拉平”的层数；
+-   数组作为参数时，无论多少层嵌套，都会转为一维数组；
+-   传入 <=0 的整数将返回原数组，不“拉平”；
 
 ```
     const arr = [10, 20, [12, 36], [12, [20, 30]], 50]
@@ -176,8 +178,8 @@
 
 #### 函数柯里化
 
-- 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数；
-- 每次调用函数时，它只接受一部分参数，并返回一个函数，直到传递所有参数为止；
+-   只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数；
+-   每次调用函数时，它只接受一部分参数，并返回一个函数，直到传递所有参数为止；
 
 ```
     const add = (x, y) => x+y
@@ -187,7 +189,7 @@
     add(1)(2)  // 输出3
 
     const add = x => y => z => x+y+z
-    add(1)(2)(3)  // 输出6 
+    add(1)(2)(3)  // 输出6
 ```
 
 #### 斐波那契数列-递归
@@ -200,18 +202,20 @@
 ```
 
 #### 对象数组排序
+
 ```
     const arr = [
         { id: 1001, name: '名称1001'},
         { id: 1002, name: '名称1002'},
         { id: 1001, name: '名称1001'},
     ]
-   
+
     arr.sort((a, b) => { return a.id - b.id })  // 按照id-升序排序
     arr.sort((a, b) => { return b.id - a.id })  // 按照id-降序排序
 ```
 
 #### 将一个非负整数数组里的所有数字拼接，打印出能拼接出的所有数字中最小的那个
+
 ```
     const minNumber = function(nums) {
         nums = nums.sort((a, b) => {
@@ -240,7 +244,7 @@
     }
 ```
 
-#### 浅拷贝（for循环）
+#### 浅拷贝（for 循环）
 
 ```
     function shallowCopy(object) {
@@ -262,6 +266,7 @@
 ```
 
 #### call/apply/bind
+
 ```
     // call原理实现
     Function.prototype.myCall = function(thisArg, ...args) {
@@ -297,7 +302,7 @@
         var fbound = function () {
             self.apply(this instanceof self ? this : thisArg, args.concat(Array.prototype.slice.call(arguments)))
         }
-        
+
         // 继承原型上的属性和方法
         fbound.prototype = Object.create(self.prototype);
 
@@ -361,6 +366,20 @@
                     timeout = null
                     func.apply(context, args)
                 }, wait)
+            }
+        }
+    }
+
+    // 节流（时间戳版）
+    function throttle(func, wait) {
+        let prev = 0
+        return function() {
+            let now = +new Date()
+            let context = this
+            let args = arguments
+            if (now - prev > wait) {
+                func.apply(context, args)
+                prev = now
             }
         }
     }

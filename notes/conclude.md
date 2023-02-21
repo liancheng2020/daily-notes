@@ -121,4 +121,21 @@
 -   onBeforeUpdate()：在组件即将因为响应式状态变更而更新其 DOM 树之前调用；
 -   onBeforeUnmount()：在组件实例被卸载之前调用；
 
-18.
+18. html5 新增功能：
+
+-   新增语义化标签：nav、header、footer、aside、section、article；
+-   音频、视频标签：audio、video；
+-   数据存储：localStorage、sessionStorage；
+-   canvas（画布）、Geolocation（地理定位）、websocket（通信协议）；
+-   input 标签新增属性：placeholder、autocomplete、autofocus、required；
+-   history API：go、forward、back、pushstate；
+
+19. BFC
+
+-   BFC 是一个独立的布局环境，可以理解为一个容器，在这个容器中按照一定规则进行物品摆放，并且不会影响其它环境中的物品。如果一个元素符合触发 BFC 的条件，则 BFC 中的元素布局不受外部影响
+
+20. data 更新 view
+
+-   实现一个监听器 observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者；
+-   实现一个订阅者 watcher，可以收到属性变化通知并执行相应的函数，从而更新视图；
+-   实现一个解析器 compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器；
