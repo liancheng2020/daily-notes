@@ -81,7 +81,7 @@
 -   通过 ES6 的 Array.isArray()做判断：
 
 ```
-    Array.isArrray(arr)
+    Array.isArray(arr)
 ```
 
 -   通过 instanceof 做判断：
