@@ -42,7 +42,7 @@ function shallow (obj) {
 // debounce
 function debounce (fn, delay) {
     let timeout;
-    return function(...args) {
+    return function (...args) {
         clearTimeout(timeout)
         timeout = setTimout(() => {
             fn.apply(this, args)
