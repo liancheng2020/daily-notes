@@ -107,7 +107,7 @@
   - history 模式的 URL 中没有#，它使用的是传统的路由分发模式，即用户在输入一个 URL 时，服务器会接收这个请求，并解析这个 URL，然后做出相应的逻辑处理；
   - 特点：
     - 当使用 history 模式时，URL 就像这样：`http://abc.com/user/id`，相比 hash 模式更加好看；
-    - 但是，history 模式需要后台配置支持，如果后台没有正确配置，访问时会返回 404；
+    - 但是 history 模式需要后台配置支持，如果后台没有正确配置，访问时会返回 404；
 
 10. params 和 query 的区别？
 
@@ -174,6 +174,7 @@
 
 - Vue 的双向数据绑定是由数据劫持结合发布者-订阅者模式实现的；
 - 数据劫持是通过 Object.defineProperty()来劫持对象数据的 setter 和 getter 操作，在数据变动时发布消息给订阅者，触发相应的监听回调；
+
 - 原理：
 
   - 通过 Observer 来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的通信桥梁，达到数据变化->视图更新；
@@ -320,32 +321,3 @@
   - CDN 使用；
   - 开启 gzip 压缩；
   - 浏览器缓存；
-
-31. vue3 原理？
-
-- 响应式系统：基于 Proxy 实现，自动追踪依赖，变化自动更新 UI；
-- Composition API：更灵活的逻辑组织方式，方便复用和维护；
-- 性能优化：静态提升、Tree-shaking、Diff 算法优化，整体性能提升；
-- 跨平台能力：通用渲染架构，支持多种目标平台；
-- 异步和 Suspense 支持：简化异步加载和懒加载，改善用户体验；
-- 设计现代化：支持 TypeScript，编译优化，结合现代 JavaScript 特性；
-
-32. vue3 响应式原理？
-
-- 核心思想：通过拦截对象的访问和变更，自动追踪依赖（数据与界面之间的关系），并在数据变化时通知相关的视图进行更新；
-
-- 代理创建：通过 Proxy 将对象变成响应式对象；
-- 依赖收集：在 get 时，记录这个地方依赖了哪些响应式数据；
-- 数据变更：在 set 时，通知依赖执行相应的更新操作；
-- 自动更新：依赖的响应式效果（如 DOM 更新、computed 等）自动触发；
-
-33. vue3 生命周期？
-
-- onBeforeMount()：组件挂载之前；
-- onMounted()：组件挂载完成（DOM 已渲染到页面）；
-- onBeforeUpdate()：组件更新之前；
-- onUpdated()：组件更新完成；
-- onBeforeUnmount()：组件卸载之前；
-- onUnmounted()：组件已卸载（销毁）；
-- onActivated()：keep-alive 组件激活时（缓存组件）；
-- onDeactivated()：keep-alive 组件失活时（缓存组件）；

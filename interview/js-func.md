@@ -10,7 +10,7 @@ function new (fn, ...args) {
 function instanceof (left, right) {
     while (true) {
         if (left === null) return false
-        if (left.__proto === right.prototype) return true
+        if (left.__proto__ === right.prototype) return true
         left = left.__proto__
     }
 }

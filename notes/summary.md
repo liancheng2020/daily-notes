@@ -607,7 +607,7 @@
   - 可以监听到数组的索引和数组 length 属性；
   - 可以监听删除属性；
 
-63. Vue-Router 的懒加载如何实现?
+63. Vue-Router 的懒加载如何实现？
 
 - 使用箭头函数+import 动态加载；
 - 使用箭头函数+require 动态加载；
@@ -634,7 +634,7 @@
 
 - cache-control：
   - http1.1 时的字段，表示缓存的时间长度；
-  - cache-contorl 还有其它一些可以设置的值：
+  - cache-control 还有其它一些可以设置的值：
     - no-cache：表示不进行强缓存，但不影响协商缓存；
     - no-store：既不强缓存，也不协商缓存；
 - expires：
